@@ -1,0 +1,239 @@
+{
+  "name": "Garry D. Peterson",
+  "short_name": "Garry Peterson",
+  "title": "Professor of Resilience in Social-Ecological Systems",
+  "institution": "Stockholm Resilience Centre, Stockholm University",
+  "email": "garry.peterson@su.se",
+  "intro": "Garry Peterson studies how people and nature shape one another through change. His work connects resilience, social-ecological systems, and futures thinking with practical questions in biodiversity, governance, and finance.",
+  "bio": [
+    "Garry Peterson is a professor in environmental sciences with emphasis on resilience and social-ecological systems at the Stockholm Resilience Centre, Stockholm University. He directs Mistra Finance to Revive Biodiversity (FinBio), an international research programme connecting biodiversity science, finance, and practical action toward a nature-positive economy.",
+    "His research integrates three themes: connections between people and nature, the dynamics of resilience, and how thinking about the future can help people and organizations navigate surprising social-ecological change. He combines quantitative analysis, systems modelling, qualitative analysis, and participatory research.",
+    "Peterson has an interdisciplinary background in sustainability. He earned a bachelor's degree in Systems Design Engineering from the University of Waterloo and completed his PhD, Contagious disturbance and ecological resilience, in Zoology at the University of Florida in 1999. He has worked at the National Center for Ecological Analysis and Synthesis, the University of Wisconsin-Madison's Center for Limnology, and McGill University.",
+    "For more than twenty years, he has contributed to international science-policy assessments, including the Millennium Ecosystem Assessment, the Arctic Resilience Assessment, and IPBES work on scenarios and models. He is co-chair of the Resilience Alliance and serves on the transition team establishing the Society for Social-Ecological Systems."
+  ],
+  "metrics": [
+    {
+      "value": "125+",
+      "label": "peer-reviewed papers across more than 50 journals"
+    },
+    {
+      "value": "3",
+      "label": "open databases connecting cases and research communities"
+    },
+    {
+      "value": "20+ years",
+      "label": "international science-policy assessment and leadership"
+    },
+    {
+      "value": "87",
+      "label": "Google Scholar h-index reported in September 2025"
+    }
+  ],
+  "research_areas": [
+    {
+      "slug": "resilience-regime-shifts",
+      "name": "Resilience & regime shifts",
+      "summary": "Understanding how ecosystems and social-ecological systems persist, reorganize, or cross thresholds under disturbance and change.",
+      "keywords": [
+        "resilience",
+        "regime shift",
+        "threshold",
+        "adaptive management"
+      ]
+    },
+    {
+      "slug": "ecosystem-services",
+      "name": "Ecosystem services",
+      "summary": "Studying bundles, trade-offs, scales, and governance of the benefits people receive from ecosystems.",
+      "keywords": [
+        "ecosystem service",
+        "human well-being",
+        "landscape",
+        "biosphere"
+      ]
+    },
+    {
+      "slug": "scenario-futures",
+      "name": "Scenarios & futures",
+      "summary": "Developing participatory and analytical approaches to imagine, compare, and navigate alternative social-ecological futures.",
+      "keywords": [
+        "scenario",
+        "future",
+        "foresight",
+        "good anthropocene",
+        "nature futures"
+      ]
+    },
+    {
+      "slug": "biodiversity-finance",
+      "name": "Biodiversity finance",
+      "summary": "Connecting biodiversity science with financial decision-making, risk, reporting, and pathways toward a nature-positive economy.",
+      "keywords": [
+        "finance",
+        "biodiversity",
+        "nature-positive",
+        "reporting"
+      ]
+    },
+    {
+      "slug": "social-ecological-systems",
+      "name": "Social-ecological systems",
+      "summary": "Integrating social and natural science to understand cross-scale interactions, transformation, governance, and sustainability.",
+      "keywords": [
+        "social-ecological",
+        "sustainability",
+        "transformation",
+        "governance"
+      ]
+    }
+  ],
+  "current_roles": [
+    {
+      "years": "2022-present",
+      "role": "Director",
+      "organization": "Mistra Finance to Revive Biodiversity (FinBio)",
+      "url": "https://finbio.org/"
+    },
+    {
+      "years": "2024-present",
+      "role": "Co-lead",
+      "organization": "Transformative Futures research theme, Stockholm Resilience Centre",
+      "url": "https://www.stockholmresilience.org/"
+    },
+    {
+      "years": "2020-present",
+      "role": "Co-chair",
+      "organization": "Resilience Alliance",
+      "url": "https://www.resalliance.org/"
+    },
+    {
+      "years": "2025-present",
+      "role": "Transition team member",
+      "organization": "Society for Social-Ecological Systems",
+      "url": "https://socses.org/"
+    },
+    {
+      "years": "2020-present",
+      "role": "Partnership Committee member",
+      "organization": "Natural Capital Project",
+      "url": "https://naturalcapitalproject.stanford.edu/"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mistra Finance to Revive Biodiversity",
+      "short": "FinBio",
+      "url": "https://finbio.org/",
+      "description": "Research connecting the financial system and biodiversity to support a resilient, nature-positive economy.",
+      "meta": "Director · Phase I 2022-2026 · Phase II 2027-2031"
+    },
+    {
+      "name": "Regime Shifts Database",
+      "short": "Regime Shifts",
+      "url": "https://regimeshifts.org/",
+      "description": "An open database of persistent changes in social-ecological system structure and function and their impacts on ecosystem services.",
+      "meta": "Co-founder · launched 2008"
+    },
+    {
+      "name": "Seeds of Good Anthropocenes",
+      "short": "Seeds",
+      "url": "https://goodanthropocenes.net/",
+      "description": "A comparative database and global initiative studying sustainability innovations and transformative futures.",
+      "meta": "Co-founder · launched 2014"
+    },
+    {
+      "name": "Biosphere Futures",
+      "short": "Biosphere Futures",
+      "url": "https://biospherefutures.net/",
+      "description": "A database of place-based social-ecological scenario-planning cases supporting comparative futures research.",
+      "meta": "Co-founder · launched 2020"
+    }
+  ],
+  "talks": [
+    {
+      "title": "Imagining the Good Anthropocene",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2020-12-11-imagining-the-good-anthropocene.html",
+      "year": "2020",
+      "description": "How positive initiatives can be used to imagine and develop diverse, desirable futures."
+    },
+    {
+      "title": "Feedbacks, interactions and regime shifts",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2021-11-15-feedbacks-interactions-and-regime-shifts.html",
+      "year": "2021",
+      "description": "A systems perspective on feedbacks, interactions, and abrupt social-ecological change."
+    },
+    {
+      "title": "Resilience thinking for practice",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2018-09-18-resilience-thinking-for-practice.html",
+      "year": "2018",
+      "description": "Applying resilience concepts in practical social-ecological decision-making."
+    }
+  ],
+  "awards": [
+    {
+      "year": "2020",
+      "name": "Web of Science Highly Cited Researcher, Cross-Field"
+    },
+    {
+      "year": "2019",
+      "name": "Innovation in Sustainability Science paper award, Ecological Society of America"
+    },
+    {
+      "year": "2008",
+      "name": "Sustainability Science paper award, Ecological Society of America"
+    }
+  ],
+  "grants": [
+    {
+      "year": "2026",
+      "name": "Mistra Finance to Revive Biodiversity, Phase II",
+      "amount": "SEK 50 million",
+      "period": "2027-2031"
+    },
+    {
+      "year": "2022",
+      "name": "Mistra Finance to Revive Biodiversity",
+      "amount": "SEK 55 million",
+      "period": "2022-2026"
+    },
+    {
+      "year": "2020",
+      "name": "Mapping Regime Shifts",
+      "amount": "US$300,000",
+      "period": "2021-2024"
+    },
+    {
+      "year": "2017",
+      "name": "Seeds of a Good Anthropocene: A Swedish perspective",
+      "amount": "SEK 3.0 million",
+      "period": "2017-2020"
+    },
+    {
+      "year": "2013",
+      "name": "Social-ecological dynamics of ecosystem services in the Norrström basin",
+      "amount": "SEK 5.8 million",
+      "period": "2013-2016"
+    }
+  ],
+  "links": [
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0003-0173-0112"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ"
+    },
+    {
+      "label": "Stockholm Resilience Centre",
+      "url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://se.linkedin.com/in/garry-peterson-764a0610"
+    }
+  ],
+  "orcid_url": "https://orcid.org/0000-0003-0173-0112",
+  "scholar_url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ",
+  "institutional_url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html"
+}

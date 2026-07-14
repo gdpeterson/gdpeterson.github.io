@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Publications</p><h1>A searchable record of {{ publication_count }} works</h1><p>Search by title, author, journal, year, or research theme. For continuously updated author records, use <a href="{{ profile.scholar_url }}" target="_blank" rel="noopener">Google Scholar</a> or <a href="{{ profile.orcid_url }}" target="_blank" rel="noopener">ORCID</a>.</p></div></section>
+<section class="section shell publications-section">
+  <div class="filters" data-publication-filters>
+    <label><span>Search</span><input id="pub-search" type="search" placeholder="e.g. resilience, scenarios, biodiversity finance"></label>
+    <label><span>Year</span><select id="pub-year"><option value="">All years</option>{% for year in years %}<option value="{{ year }}">{{ year }} ({{ year_counts[year] }})</option>{% endfor %}</select></label>
+    <label><span>Theme</span><select id="pub-theme"><option value="">All themes</option>{% for area in profile.research_areas %}<option value="{{ area.name }}">{{ area.name }}</option>{% endfor %}</select></label>
+    <p id="pub-results" class="result-count">Showing {{ publication_count }} works</p>
+  </div>
+  <div class="publication-list" id="publication-list">
+  {% for pub in publications %}
+    <article class="publication-item" data-year="{{ pub.year or '' }}" data-theme="{{ pub.tags|join('|') }}" data-search="{{ (pub.title ~ ' ' ~ pub.authors_display ~ ' ' ~ pub.venue ~ ' ' ~ pub.tags|join(' '))|lower }}">
+      <div class="pub-year">{{ pub.year or '—' }}</div>
+      <div><h2>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h2><p class="authors">{{ pub.authors_display }}</p><p class="citation">{{ pub.venue }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.issue %}({{ pub.issue }}){% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.</p><div class="tag-row">{% for tag in pub.tags %}<span class="tag small">{{ tag }}</span>{% endfor %}{% if pub.doi %}<a class="doi" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI ↗</a>{% endif %}</div></div>
+    </article>
+  {% endfor %}
+  </div>
+  <p id="pub-empty" class="empty-state" hidden>No publications match these filters.</p>
+</section>
+{% endblock %}
