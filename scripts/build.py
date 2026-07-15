@@ -86,6 +86,21 @@ def normalize_publications(raw, curation, taxonomy):
         suggested_themes,suggested_questions=suggest_taxonomy(title,venue)
         themes=override.get('themes',suggested_themes); questions=override.get('questions',suggested_questions)
         authors=[author_name(a) for a in pub.get('author',[])]
+
+        # Compatibility labels used by the SRC-inspired templates.
+        # The canonical taxonomy remains theme_ids/themes.
+        legacy_tag_map = {
+            'resilience-regime-shifts': 'Resilience & regime shifts',
+            'ecosystem-services-biodiversity': 'Ecosystem services',
+            'scenarios-futures': 'Scenarios & futures',
+            'biodiversity-finance': 'Biodiversity finance',
+            'governance-transformation': 'Social-ecological systems',
+        }
+        legacy_tags = [
+            legacy_tag_map[theme_id]
+            for theme_id in themes
+            if theme_id in legacy_tag_map
+        ]
         ptype=clean_text(pub.get('type')).replace('article-journal','Journal article').replace('chapter','Book chapter').replace('book','Book').replace('report','Report').replace('paper-conference','Conference paper').replace('dataset','Dataset').title()
         normalized.append({
           'id':key,'title':title,'year':year,'authors':authors,'authors_display':', '.join(authors),'venue':venue,
@@ -94,6 +109,7 @@ def normalize_publications(raw, curation, taxonomy):
           'theme_ids':themes,'question_ids':questions,
           'themes':[taxonomy['themes'][x]['title'] for x in themes if x in taxonomy['themes']],
           'questions':[taxonomy['questions'][x]['short_title'] for x in questions if x in taxonomy['questions']],
+          'tags':legacy_tags,
           'featured':bool(override.get('featured',False)),'summary':override.get('summary'),'review_status':override.get('review_status','suggested')
         })
     return sorted(normalized,key=lambda p:(p['year'] or 0,p['title'].lower()),reverse=True)

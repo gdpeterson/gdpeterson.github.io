@@ -32,23 +32,11 @@
   </div>
 </section>
 
-<section class="section question-section" aria-labelledby="questions-title">
-  <div class="shell">
-    <div class="section-heading split">
-      <div><p class="eyebrow">Three guiding questions</p><h2 id="questions-title">A research programme organised around connections, change, and futures.</h2></div>
-      <p>These questions overlap by design. Publications, projects, and open resources can contribute to more than one question.</p>
-    </div>
-    <div class="question-grid">
-      {% for question in profile.intellectual_questions %}
-      <article class="question-card" id="{{ question.id }}">
-        <div class="question-image"><img src="{{ question.image }}" alt=""></div>
-        <span class="question-number">0{{ loop.index }}</span>
-        <h3>{{ question.title }}</h3>
-        <p>{{ question.description }}</p>
-        <div class="question-links">{% for link in question.links %}<a href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">→</span></a>{% endfor %}</div>
-      </article>
-      {% endfor %}
-    </div>
+<section class="research-image-strip" aria-label="Visual themes from the research">
+  <div class="shell research-image-grid">
+    <figure><img src="/images/story-regime.svg" alt="Abstract illustration of a landscape crossing a social-ecological threshold"><figcaption><strong>Thresholds & regime shifts</strong><span>Alternative states, feedbacks, and surprise</span></figcaption></figure>
+    <figure><img src="/images/story-seeds.svg" alt="Abstract illustration of diverse initiatives branching toward desirable futures"><figcaption><strong>Participatory futures</strong><span>Seeds, pathways, and collective imagination</span></figcaption></figure>
+    <figure><img src="/images/story-finance.svg" alt="Abstract illustration connecting biodiversity with financial institutions"><figcaption><strong>Biodiversity & finance</strong><span>Institutions linking decisions to the biosphere</span></figcaption></figure>
   </div>
 </section>
 
@@ -191,7 +179,12 @@
     <div class="publication-cards">
       {% for pub in selected_publications %}
       <article class="pub-card">
-        <div class="pub-meta"><span>{{ pub.year }}</span><span>{{ pub.themes[0] }}</span></div>
+        <div class="pub-meta">
+  <span>{{ pub.year }}</span>
+  {% if pub.tags %}
+    <span>{{ pub.tags[0] }}</span>
+  {% endif %}
+</div>
         <h3>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
         <p>{{ pub.venue }}</p>
         {% if pub.url %}<a class="card-arrow" href="{{ pub.url }}" target="_blank" rel="noopener" aria-label="Open publication">↗</a>{% endif %}
