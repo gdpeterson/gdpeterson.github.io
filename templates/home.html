@@ -1,22 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="hero">
-<<<<<<< HEAD
   <div class="hero-colour-band" aria-hidden="true"></div>
   <div class="shell hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Garry D. Peterson · Stockholm Resilience Centre</p>
-=======
-  <img class="hero-contours" src="/images/contour-field.svg" alt="">
-  <div class="shell hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow light">Garry D. Peterson · Stockholm Resilience Centre</p>
->>>>>>> origin/main
       <h1>Researching how <em>people</em> and <em>nature</em> shape one another.</h1>
       <p class="hero-role">{{ profile.title }}</p>
       <p class="hero-intro">{{ profile.intro }}</p>
       <div class="button-row">
-<<<<<<< HEAD
         <a class="button fire" href="#pathways">Find your path <span aria-hidden="true">↓</span></a>
         <a class="button outline-dark" href="{{ profile.scholar_url }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
         <a class="button text-dark" href="{{ profile.orcid_url }}" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a>
@@ -24,14 +16,6 @@
     </div>
     <div class="portrait-ecosystem">
       <img class="hero-research-graphic" src="/images/hero-biosphere-map.svg" alt="">
-=======
-        <a class="button paper" href="/research/">Explore the research <span aria-hidden="true">→</span></a>
-        <a class="button outline-light" href="{{ profile.scholar_url }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
-        <a class="button text-light" href="{{ profile.orcid_url }}" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-    <div class="portrait-ecosystem">
->>>>>>> origin/main
       <div class="portrait-orbit" aria-hidden="true"></div>
       <span class="orbit-label orbit-one">resilience</span>
       <span class="orbit-label orbit-two">futures</span>
@@ -44,7 +28,6 @@
   </div>
   <div class="shell hero-foot">
     <p>Environmental science with emphasis on resilience and social-ecological systems.</p>
-<<<<<<< HEAD
     <a href="#connection">Explore a social-ecological system <span aria-hidden="true">↓</span></a>
   </div>
 </section>
@@ -154,27 +137,6 @@
       </div>
     </div>
     <script type="application/json" id="explorer-data">{{ profile.explorer | tojson }}</script>
-=======
-    <a href="#connection">Follow the connections <span aria-hidden="true">↓</span></a>
-  </div>
-</section>
-
-<section id="connection" class="section connection-section">
-  <div class="shell">
-    <div class="section-heading connection-heading">
-      <div><p class="eyebrow">A connected research agenda</p><h2>Change is ecological, social, and imagined.</h2></div>
-      <p>Peterson’s work asks how relationships between people and the biosphere create resilience, produce surprise, and open or close pathways toward desirable futures.</p>
-    </div>
-    <div class="connection-grid">
-      <article class="connection-card card-resilience"><span>01</span><h3>Understand change</h3><p>Identify feedbacks, thresholds, and regime shifts that reorganize social-ecological systems.</p><a href="/research/#resilience-regime-shifts">Resilience & regime shifts →</a></article>
-      <div class="connection-core" aria-label="People and nature are mutually connected">
-        <img src="/images/connection-mark.svg" alt="">
-        <strong>people</strong><span>shape and are shaped by</span><strong>nature</strong>
-      </div>
-      <article class="connection-card card-futures"><span>02</span><h3>Imagine alternatives</h3><p>Use scenarios and participatory futures to expand what communities and organizations can see and choose.</p><a href="/research/#scenario-futures">Scenarios & futures →</a></article>
-      <article class="connection-card card-action"><span>03</span><h3>Act through institutions</h3><p>Connect biodiversity science with governance, financial systems, and practical decision-making.</p><a href="/research/#biodiversity-finance">Biodiversity finance →</a></article>
-    </div>
->>>>>>> origin/main
   </div>
 </section>
 
@@ -186,7 +148,6 @@
   </div>
 </section>
 
-<<<<<<< HEAD
 <section id="stories" class="section stories-section">
   <div class="shell">
     <div class="section-heading split">
@@ -220,25 +181,6 @@
         </div>
       </article>
       {% endfor %}
-=======
-<section class="section programme-section">
-  <div class="shell programme-grid">
-    <div class="programme-copy">
-      <p class="eyebrow">Current programme</p>
-      <h2>Finance to Revive Biodiversity</h2>
-      <p class="lead">How can the financial system help reverse biodiversity loss and strengthen the resilience of the biosphere?</p>
-      <p>Mistra FinBio brings together ecology, finance, law, accounting, futures, and decision science to develop research and practical tools for a nature-positive economy.</p>
-      <a class="button forest" href="https://finbio.org/" target="_blank" rel="noopener">Visit FinBio <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="programme-figure">
-      <div class="programme-ring ring-one"></div><div class="programme-ring ring-two"></div>
-      <div class="programme-node node-finance">finance</div>
-      <div class="programme-node node-science">science</div>
-      <div class="programme-node node-policy">policy</div>
-      <div class="programme-node node-nature">biodiversity</div>
-      <div class="programme-centre"><strong>FinBio</strong><span>2022–2031</span></div>
-      <p>SEK 105 million across two phases</p>
->>>>>>> origin/main
     </div>
   </div>
 </section>
@@ -249,11 +191,7 @@
     <div class="publication-cards">
       {% for pub in selected_publications %}
       <article class="pub-card">
-<<<<<<< HEAD
         <div class="pub-meta"><span>{{ pub.year }}</span><span>{{ pub.themes[0] }}</span></div>
-=======
-        <div class="pub-meta"><span>{{ pub.year }}</span><span>{{ pub.tags[0] }}</span></div>
->>>>>>> origin/main
         <h3>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
         <p>{{ pub.venue }}</p>
         {% if pub.url %}<a class="card-arrow" href="{{ pub.url }}" target="_blank" rel="noopener" aria-label="Open publication">↗</a>{% endif %}
@@ -281,7 +219,6 @@
     </div>
   </div>
 </section>
-<<<<<<< HEAD
 
 <section id="use" class="section use-section">
   <div class="shell">
@@ -303,6 +240,4 @@
     </div>
   </div>
 </section>
-=======
->>>>>>> origin/main
 {% endblock %}

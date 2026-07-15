@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<<<<<<< HEAD
 <section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Research</p><h1>Connections, change, and uncertain futures</h1><p>The research programme is organised around three overlapping questions and five non-exclusive domains. This structure reflects how individual papers often connect ecological dynamics, institutions, methods, and applications.</p></div></section>
 <section class="section shell">
   <div class="section-heading split"><div><p class="eyebrow">Guiding questions</p><h2>Three questions organise the intellectual programme.</h2></div><p>Each question links to a live publication view. Counts are generated from the current publication metadata.</p></div>
@@ -22,21 +21,4 @@
   </div></div>
 </section>
 <section class="section shell taxonomy-explainer"><div class="section-heading split"><div><p class="eyebrow">How the system is maintained</p><h2>Automatic facts, reviewed interpretation.</h2></div><p>ORCID and DOI services supply bibliographic metadata. The questions, themes, summaries, and featured status are held in a separate curation file so synchronization cannot overwrite scholarly judgement.</p></div></section>
-=======
-<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Research</p><h1>Resilience science for a changing biosphere</h1><p>Peterson’s work links ecological dynamics, human well-being, governance, and futures practice to understand and navigate social-ecological change.</p></div></section>
-<section class="section shell research-list">
-  {% for area in profile.research_areas %}
-  <article id="{{ area.slug }}" class="research-row">
-    <div class="research-title"><span class="area-index">0{{ loop.index }}</span><h2>{{ area.name }}</h2><div class="research-seed" aria-hidden="true"></div></div>
-    <div><p class="lead">{{ area.summary }}</p><div class="tag-row">{% for keyword in area.keywords %}<span class="tag">{{ keyword }}</span>{% endfor %}</div>
-      <h3>Recent and representative publications</h3>
-      <ul class="mini-pubs">
-      {% set ns = namespace(count=0) %}
-      {% for pub in publications %}{% if area.name in pub.tags and ns.count < 4 %}<li><span>{{ pub.year }}</span>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</li>{% set ns.count = ns.count + 1 %}{% endif %}{% endfor %}
-      </ul>
-    </div>
-  </article>
-  {% endfor %}
-</section>
->>>>>>> origin/main
 {% endblock %}
