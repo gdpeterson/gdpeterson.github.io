@@ -25,7 +25,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+<<<<<<< HEAD
 section[id] { scroll-margin-top: 92px; }
+=======
+>>>>>>> origin/main
 body {
   margin: 0;
   background:
@@ -409,6 +412,7 @@ button, input, select { font: inherit; }
   .footer-links { justify-content: flex-start; }
   .footer-note { flex-direction: column; gap: 8px; }
 }
+<<<<<<< HEAD
 
 /* Audience pathways */
 .audience-section { background: var(--paper-soft); }
@@ -1009,3 +1013,5 @@ select { font-family: Lato, Arial, Helvetica, sans-serif; }
 .filter-options{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;padding:.7rem 0}.filter-options button{border:0;background:none;text-decoration:underline;font:inherit;font-weight:700;cursor:pointer}
 .result-count{grid-column:1/-1}.pub-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem}.pub-meta span{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#5c6d66}.question-tag{background:#dce9f2!important;color:#153f59!important}.pub-summary{max-width:56rem}
 @media(max-width:850px){.question-grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.filter-search{grid-column:auto}.question-image{height:12rem}}
+=======
+>>>>>>> origin/main

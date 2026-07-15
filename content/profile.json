@@ -235,6 +235,7 @@
   ],
   "orcid_url": "https://orcid.org/0000-0003-0173-0112",
   "scholar_url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ",
+<<<<<<< HEAD
   "institutional_url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html",
   "audiences": [
     {
@@ -693,4 +694,7 @@
       ]
     }
   ]
+=======
+  "institutional_url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html"
+>>>>>>> origin/main
 }

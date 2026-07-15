@@ -2,11 +2,19 @@
 
 Source for the GitHub Pages project site at `https://gdpeterson.github.io/garrypeterson.github.io/`.
 
+<<<<<<< HEAD
 The site uses a biophilic, systems-oriented visual language to foreground connections among people, nature, resilience, and futures. Its typography and accent palette are informed by the public Stockholm Resilience Centre graphic manual (Lato, Fire, Water, Sky, Olive, and Stockholm University Blue), while the design remains a distinct personal academic identity rather than an official SRC template. Original illustrations draw on themes in Peterson’s research and Resilience Alliance practice: landscape mosaics, feedbacks, thresholds, participatory futures, and cross-scale connections. The homepage includes an accessible interactive systems explorer, audience-specific pathways, evidence-rich research stories, and direct routes for reusing the research. It is a static Jinja-based build; the only browser-time design dependency is the Lato stylesheet served by Google Fonts.
 
 ## Edit content
 
 - Profile, biography, audience pathways, systems-explorer content, research stories, reuse pathways, projects, roles, talks, grants, awards, and external profiles: `content/profile.json`
+=======
+The site uses an editorial, biophilic visual system to foreground connections among people, nature, resilience, and futures. It is a static Jinja-based build with no external theme or runtime dependency in the deployed output.
+
+## Edit content
+
+- Profile, biography, projects, roles, talks, grants, awards, and external profiles: `content/profile.json`
+>>>>>>> origin/main
 - Publications: `data/publications-csl.json`
 - Styling: `assets/css/site.css`
 - Page templates: `templates/`
@@ -24,6 +32,7 @@ Then open `http://localhost:4173`.
 ## Publish
 
 Pushing to `main` triggers `.github/workflows/pages.yml`. The workflow builds with the project-site base path `/garrypeterson.github.io` and deploys `dist/`. GitHub Pages must be configured to use **GitHub Actions** as the source.
+<<<<<<< HEAD
 
 ## Maintainable research taxonomy
 
@@ -58,3 +67,5 @@ python scripts/update_orcid.py
 pip install -r requirements.txt
 python scripts/build.py
 ```
+=======
+>>>>>>> origin/main
