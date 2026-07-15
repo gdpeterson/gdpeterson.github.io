@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Publications</p><h1>A searchable record of {{ publication_count }} works</h1><p>Bibliographic records come from ORCID-compatible data and DOI metadata. Peterson-specific research categories are non-exclusive and reviewed separately, so automatic updates cannot erase editorial interpretation.</p></div></section>
+<section class="section shell publications-section">
+  <div class="provenance-note"><strong>Open publication record</strong><span>{% if sync.last_synced %}Last ORCID synchronization: {{ sync.last_synced }}.{% else %}The included records can be synchronized from ORCID using the repository workflow.{% endif %}</span><a href="/publications.json">Download JSON</a><a href="{{ profile.orcid_url }}" target="_blank" rel="noopener">View ORCID ↗</a></div>
+  <div class="filters" data-publication-filters>
+    <label class="filter-search"><span>Search</span><input id="pub-search" type="search" placeholder="Title, author, journal, method, or theme"></label>
+    <label><span>Year</span><select id="pub-year"><option value="">All years</option>{% for year in years %}<option value="{{ year }}">{{ year }} ({{ year_counts[year] }})</option>{% endfor %}</select></label>
+    <fieldset class="filter-group"><legend>Guiding questions</legend>{% for id, q in taxonomy.questions.items() %}<label><input type="checkbox" name="question" value="{{ id }}"><span>{{ q.short_title }}</span><small>{{ question_counts[id] }}</small></label>{% endfor %}</fieldset>
+    <fieldset class="filter-group"><legend>Research domains</legend>{% for id, theme in taxonomy.themes.items() %}<label><input type="checkbox" name="theme" value="{{ id }}"><span>{{ theme.title }}</span><small>{{ theme_counts[id] }}</small></label>{% endfor %}</fieldset>
+    <div class="filter-options"><label><input id="pub-match-all" type="checkbox"> Match every selected domain</label><button id="pub-reset" type="button">Clear filters</button></div>
+    <p id="pub-results" class="result-count" aria-live="polite">Showing {{ publication_count }} works</p>
+  </div>
+  <div class="publication-list" id="publication-list">
+  {% for pub in publications %}
+    <article class="publication-item" data-year="{{ pub.year or '' }}" data-themes="{{ pub.theme_ids|join('|') }}" data-questions="{{ pub.question_ids|join('|') }}" data-search="{{ (pub.title ~ ' ' ~ pub.authors_display ~ ' ' ~ pub.venue ~ ' ' ~ pub.themes|join(' ') ~ ' ' ~ pub.questions|join(' '))|lower }}">
+      <div class="pub-year">{{ pub.year or '—' }}</div>
+      <div><div class="pub-meta"><span>{{ pub.type }}</span>{% if pub.review_status == 'suggested' %}<span title="Category suggestions await individual review">Suggested categories</span>{% endif %}</div><h2>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h2><p class="authors">{{ pub.authors_display }}</p><p class="citation">{{ pub.venue }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.issue %}({{ pub.issue }}){% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.</p>{% if pub.summary %}<p class="pub-summary">{{ pub.summary }}</p>{% endif %}<div class="tag-row">{% for tag in pub.themes %}<span class="tag small">{{ tag }}</span>{% endfor %}{% for q in pub.questions %}<span class="tag small question-tag">{{ q }}</span>{% endfor %}{% if pub.doi %}<a class="doi" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI ↗</a>{% endif %}</div></div>
+    </article>
+  {% endfor %}
+  </div><p id="pub-empty" class="empty-state" hidden>No publications match these filters.</p>
+</section>
+{% endblock %}

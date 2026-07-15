@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Talks</p><h1>Ideas in public</h1><p>Selected recorded talks on desirable futures, regime shifts, and applying resilience thinking.</p></div></section>
+<section class="section shell"><div class="talk-grid">{% for talk in profile.talks %}<a class="talk-card" href="{{ talk.url }}" target="_blank" rel="noopener"><div class="talk-icon" aria-hidden="true"><span>▶</span></div><span>{{ talk.year }} · Stockholm Resilience Centre</span><h2>{{ talk.title }}</h2><p>{{ talk.description }}</p><b>Watch talk ↗</b></a>{% endfor %}</div></section>
+{% endblock %}

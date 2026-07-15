@@ -1,0 +1,40 @@
+name: Update publications from ORCID
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 7 1 * *"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synchronize public ORCID works
+        env:
+          ORCID_ID: 0000-0003-0173-0112
+          CROSSREF_MAILTO: garry.peterson@su.se
+        run: python scripts/update_orcid.py
+      - name: Build and validate
+        run: |
+          pip install -r requirements.txt
+          python scripts/build.py
+          python -m json.tool data/publications-csl.json >/dev/null
+          python -m json.tool data/publication-curation.json >/dev/null
+      - name: Create review pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/orcid-publications
+          delete-branch: true
+          commit-message: "Update publications from ORCID"
+          title: "Review ORCID publication update"
+          body: |
+            This pull request was generated from Garry Peterson's public ORCID record.
+            Bibliographic changes are automatic; research themes, guiding questions,
+            summaries, and featured status remain in `data/publication-curation.json`.
+            Please review new records and set `review_status` to `reviewed` when ready.
+          labels: publications,needs-review

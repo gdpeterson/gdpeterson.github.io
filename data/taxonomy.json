@@ -1,0 +1,14 @@
+{
+  "questions": {
+    "people-nature-connections": {"title": "How are people and nature connected?", "short_title": "People and nature", "description": "Biodiversity, ecosystem services, livelihoods, institutions, landscapes, and financial dependencies on nature."},
+    "social-ecological-change": {"title": "How and why do social-ecological systems change?", "short_title": "System change", "description": "Resilience, feedbacks, thresholds, regime shifts, disturbance, and interactions across scales."},
+    "navigate-shape-futures": {"title": "How can people navigate and shape uncertain futures?", "short_title": "Futures", "description": "Scenarios, transformation, collective action, and institutions for navigating uncertainty and shaping desirable change."}
+  },
+  "themes": {
+    "resilience-regime-shifts": {"title": "Resilience and regime shifts", "description": "Persistence, thresholds, feedbacks, alternative states, cascading change, and resilience assessment."},
+    "ecosystem-services-biodiversity": {"title": "Ecosystem services and biodiversity", "description": "Nature’s contributions, biodiversity, ecosystem-service bundles, trade-offs, access, and multifunctional landscapes."},
+    "scenarios-futures": {"title": "Scenarios and futures", "description": "Exploratory and normative scenarios, foresight, Nature Futures, and Seeds of Good Anthropocenes."},
+    "governance-transformation": {"title": "Governance and transformation", "description": "Institutions, stewardship, collective action, participation, justice, and sustainability transformations."},
+    "biodiversity-finance": {"title": "Biodiversity finance", "description": "Financial dependencies and impacts, disclosure, risk, scenarios, investment, regulation, and nature-positive economies."}
+  }
+}

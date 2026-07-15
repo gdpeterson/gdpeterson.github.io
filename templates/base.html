@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Garry Peterson — professor of resilience in social-ecological systems at Stockholm University.">
+  <meta name="theme-color" content="#123f35">
+  <title>{{ page_title }}{% if page_title != profile.name %} · {{ profile.short_name }}{% endif %}</title>
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body data-site-base="{{ site_base }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="/" aria-label="Garry Peterson home">
+        <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+        <span><strong>Garry Peterson</strong><small>People · nature · change</small></span>
+      </a>
+      <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="/research/" {% if active == 'research' %}aria-current="page"{% endif %}>Research</a>
+        <a href="/publications/" {% if active == 'publications' %}aria-current="page"{% endif %}>Publications</a>
+        <a href="/projects/" {% if active == 'projects' %}aria-current="page"{% endif %}>Projects & data</a>
+        <a href="/talks/" {% if active == 'talks' %}aria-current="page"{% endif %}>Talks</a>
+        <a href="/bio/" {% if active == 'bio' %}aria-current="page"{% endif %}>About</a>
+        <a class="nav-contact" href="/contact/" {% if active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-intro">
+        <div class="footer-mark"><img src="/images/connection-mark.svg" alt=""></div>
+        <div><strong>{{ profile.short_name }}</strong><p>{{ profile.title }}<br>{{ profile.institution }}</p></div>
+      </div>
+      <div class="footer-links" aria-label="External profiles">
+        <a href="{{ profile.orcid_url }}" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a>
+        <a href="{{ profile.scholar_url }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
+        <a href="{{ profile.institutional_url }}" target="_blank" rel="noopener">Institutional profile <span aria-hidden="true">↗</span></a>
+        <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+      </div>
+    </div>
+    <div class="shell footer-note"><span>Stockholm, Sweden</span><span>Researching resilient futures for people and the biosphere.</span></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,696 @@
+{
+  "name": "Garry D. Peterson",
+  "short_name": "Garry Peterson",
+  "title": "Professor of Resilience in Social-Ecological Systems",
+  "institution": "Stockholm Resilience Centre, Stockholm University",
+  "email": "garry.peterson@su.se",
+  "intro": "Garry Peterson studies how people and nature shape one another through change. His work connects resilience, social-ecological systems, and futures thinking with practical questions in biodiversity, governance, and finance.",
+  "bio": [
+    "Garry Peterson is a professor in environmental sciences with emphasis on resilience and social-ecological systems at the Stockholm Resilience Centre, Stockholm University. He directs Mistra Finance to Revive Biodiversity (FinBio), an international research programme connecting biodiversity science, finance, and practical action toward a nature-positive economy.",
+    "His research integrates three themes: connections between people and nature, the dynamics of resilience, and how thinking about the future can help people and organizations navigate surprising social-ecological change. He combines quantitative analysis, systems modelling, qualitative analysis, and participatory research.",
+    "Peterson has an interdisciplinary background in sustainability. He earned a bachelor's degree in Systems Design Engineering from the University of Waterloo and completed his PhD, Contagious disturbance and ecological resilience, in Zoology at the University of Florida in 1999. He has worked at the National Center for Ecological Analysis and Synthesis, the University of Wisconsin-Madison's Center for Limnology, and McGill University.",
+    "For more than twenty years, he has contributed to international science-policy assessments, including the Millennium Ecosystem Assessment, the Arctic Resilience Assessment, and IPBES work on scenarios and models. He is co-chair of the Resilience Alliance and serves on the transition team establishing the Society for Social-Ecological Systems."
+  ],
+  "metrics": [
+    {
+      "value": "125+",
+      "label": "peer-reviewed papers across more than 50 journals"
+    },
+    {
+      "value": "3",
+      "label": "open databases connecting cases and research communities"
+    },
+    {
+      "value": "20+ years",
+      "label": "international science-policy assessment and leadership"
+    },
+    {
+      "value": "87",
+      "label": "Google Scholar h-index reported in September 2025"
+    }
+  ],
+  "research_areas": [
+    {
+      "slug": "resilience-regime-shifts",
+      "name": "Resilience & regime shifts",
+      "summary": "Understanding how ecosystems and social-ecological systems persist, reorganize, or cross thresholds under disturbance and change.",
+      "keywords": [
+        "resilience",
+        "regime shift",
+        "threshold",
+        "adaptive management"
+      ]
+    },
+    {
+      "slug": "ecosystem-services",
+      "name": "Ecosystem services",
+      "summary": "Studying bundles, trade-offs, scales, and governance of the benefits people receive from ecosystems.",
+      "keywords": [
+        "ecosystem service",
+        "human well-being",
+        "landscape",
+        "biosphere"
+      ]
+    },
+    {
+      "slug": "scenario-futures",
+      "name": "Scenarios & futures",
+      "summary": "Developing participatory and analytical approaches to imagine, compare, and navigate alternative social-ecological futures.",
+      "keywords": [
+        "scenario",
+        "future",
+        "foresight",
+        "good anthropocene",
+        "nature futures"
+      ]
+    },
+    {
+      "slug": "biodiversity-finance",
+      "name": "Biodiversity finance",
+      "summary": "Connecting biodiversity science with financial decision-making, risk, reporting, and pathways toward a nature-positive economy.",
+      "keywords": [
+        "finance",
+        "biodiversity",
+        "nature-positive",
+        "reporting"
+      ]
+    },
+    {
+      "slug": "social-ecological-systems",
+      "name": "Social-ecological systems",
+      "summary": "Integrating social and natural science to understand cross-scale interactions, transformation, governance, and sustainability.",
+      "keywords": [
+        "social-ecological",
+        "sustainability",
+        "transformation",
+        "governance"
+      ]
+    }
+  ],
+  "current_roles": [
+    {
+      "years": "2022-present",
+      "role": "Director",
+      "organization": "Mistra Finance to Revive Biodiversity (FinBio)",
+      "url": "https://finbio.org/"
+    },
+    {
+      "years": "2024-present",
+      "role": "Co-lead",
+      "organization": "Transformative Futures research theme, Stockholm Resilience Centre",
+      "url": "https://www.stockholmresilience.org/"
+    },
+    {
+      "years": "2020-present",
+      "role": "Co-chair",
+      "organization": "Resilience Alliance",
+      "url": "https://www.resalliance.org/"
+    },
+    {
+      "years": "2025-present",
+      "role": "Transition team member",
+      "organization": "Society for Social-Ecological Systems",
+      "url": "https://socses.org/"
+    },
+    {
+      "years": "2020-present",
+      "role": "Partnership Committee member",
+      "organization": "Natural Capital Project",
+      "url": "https://naturalcapitalproject.stanford.edu/"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mistra Finance to Revive Biodiversity",
+      "short": "FinBio",
+      "url": "https://finbio.org/",
+      "description": "Research connecting the financial system and biodiversity to support a resilient, nature-positive economy.",
+      "meta": "Director · Phase I 2022-2026 · Phase II 2027-2031"
+    },
+    {
+      "name": "Regime Shifts Database",
+      "short": "Regime Shifts",
+      "url": "https://regimeshifts.org/",
+      "description": "An open database of persistent changes in social-ecological system structure and function and their impacts on ecosystem services.",
+      "meta": "Co-founder · launched 2008"
+    },
+    {
+      "name": "Seeds of Good Anthropocenes",
+      "short": "Seeds",
+      "url": "https://goodanthropocenes.net/",
+      "description": "A comparative database and global initiative studying sustainability innovations and transformative futures.",
+      "meta": "Co-founder · launched 2014"
+    },
+    {
+      "name": "Biosphere Futures",
+      "short": "Biosphere Futures",
+      "url": "https://biospherefutures.net/",
+      "description": "A database of place-based social-ecological scenario-planning cases supporting comparative futures research.",
+      "meta": "Co-founder · launched 2020"
+    }
+  ],
+  "talks": [
+    {
+      "title": "Imagining the Good Anthropocene",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2020-12-11-imagining-the-good-anthropocene.html",
+      "year": "2020",
+      "description": "How positive initiatives can be used to imagine and develop diverse, desirable futures."
+    },
+    {
+      "title": "Feedbacks, interactions and regime shifts",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2021-11-15-feedbacks-interactions-and-regime-shifts.html",
+      "year": "2021",
+      "description": "A systems perspective on feedbacks, interactions, and abrupt social-ecological change."
+    },
+    {
+      "title": "Resilience thinking for practice",
+      "url": "https://www.stockholmresilience.org/research/research-videos/2018-09-18-resilience-thinking-for-practice.html",
+      "year": "2018",
+      "description": "Applying resilience concepts in practical social-ecological decision-making."
+    }
+  ],
+  "awards": [
+    {
+      "year": "2020",
+      "name": "Web of Science Highly Cited Researcher, Cross-Field"
+    },
+    {
+      "year": "2019",
+      "name": "Innovation in Sustainability Science paper award, Ecological Society of America"
+    },
+    {
+      "year": "2008",
+      "name": "Sustainability Science paper award, Ecological Society of America"
+    }
+  ],
+  "grants": [
+    {
+      "year": "2026",
+      "name": "Mistra Finance to Revive Biodiversity, Phase II",
+      "amount": "SEK 50 million",
+      "period": "2027-2031"
+    },
+    {
+      "year": "2022",
+      "name": "Mistra Finance to Revive Biodiversity",
+      "amount": "SEK 55 million",
+      "period": "2022-2026"
+    },
+    {
+      "year": "2020",
+      "name": "Mapping Regime Shifts",
+      "amount": "US$300,000",
+      "period": "2021-2024"
+    },
+    {
+      "year": "2017",
+      "name": "Seeds of a Good Anthropocene: A Swedish perspective",
+      "amount": "SEK 3.0 million",
+      "period": "2017-2020"
+    },
+    {
+      "year": "2013",
+      "name": "Social-ecological dynamics of ecosystem services in the Norrström basin",
+      "amount": "SEK 5.8 million",
+      "period": "2013-2016"
+    }
+  ],
+  "links": [
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0003-0173-0112"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ"
+    },
+    {
+      "label": "Stockholm Resilience Centre",
+      "url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://se.linkedin.com/in/garry-peterson-764a0610"
+    }
+  ],
+  "orcid_url": "https://orcid.org/0000-0003-0173-0112",
+  "scholar_url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ",
+  "institutional_url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html",
+  "audiences": [
+    {
+      "label": "For researchers and students",
+      "title": "Trace the ideas and evidence",
+      "summary": "Move from core concepts to publications, talks, and reusable comparative data on resilience, scenarios, and social-ecological change.",
+      "links": [
+        {
+          "label": "Explore research themes",
+          "url": "/research/"
+        },
+        {
+          "label": "Search publications",
+          "url": "/publications/"
+        },
+        {
+          "label": "Open datasets and projects",
+          "url": "/projects/"
+        }
+      ]
+    },
+    {
+      "label": "For policy, finance, and practice",
+      "title": "Connect science to decisions",
+      "summary": "Find work on biodiversity-related risk, institutional change, scenario planning, and practical pathways toward resilient, nature-positive economies.",
+      "links": [
+        {
+          "label": "Visit FinBio",
+          "url": "https://finbio.org/"
+        },
+        {
+          "label": "Watch selected talks",
+          "url": "/talks/"
+        },
+        {
+          "label": "Start a conversation",
+          "url": "/contact/"
+        }
+      ]
+    },
+    {
+      "label": "For futures practitioners and educators",
+      "title": "Use cases to imagine alternatives",
+      "summary": "Draw on open scenario collections, sustainability initiatives, and teaching resources to help groups explore diverse and desirable futures.",
+      "links": [
+        {
+          "label": "Explore Biosphere Futures",
+          "url": "https://biospherefutures.net/"
+        },
+        {
+          "label": "Explore Seeds of Good Anthropocenes",
+          "url": "https://goodanthropocenes.net/"
+        },
+        {
+          "label": "Visit SES Methods",
+          "url": "https://sesmethods.org/"
+        }
+      ]
+    }
+  ],
+  "explorer": {
+    "nodes": [
+      {
+        "id": "biosphere",
+        "label": "Biosphere"
+      },
+      {
+        "id": "people",
+        "label": "People"
+      },
+      {
+        "id": "knowledge",
+        "label": "Knowledge"
+      },
+      {
+        "id": "institutions",
+        "label": "Institutions"
+      },
+      {
+        "id": "finance",
+        "label": "Finance"
+      },
+      {
+        "id": "futures",
+        "label": "Futures"
+      }
+    ],
+    "lenses": [
+      {
+        "id": "resilience",
+        "label": "Resilience",
+        "default_node": "biosphere",
+        "active_nodes": [
+          "biosphere",
+          "people",
+          "knowledge",
+          "institutions"
+        ],
+        "title": "How change travels through a social-ecological system",
+        "summary": "Resilience research follows feedbacks across ecological processes, lived experience, knowledge, and institutions to understand persistence, thresholds, and reorganization.",
+        "question": "Where can intervention maintain valued functions, create room to adapt, or prevent harmful cascades?",
+        "link": "/research/#resilience-regime-shifts",
+        "link_label": "Explore resilience research",
+        "nodes": {
+          "biosphere": {
+            "kicker": "Ecological dynamics",
+            "title": "Biosphere",
+            "body": "Species, ecological functions, disturbances, and feedbacks create the changing biophysical conditions within which societies live."
+          },
+          "people": {
+            "kicker": "Lived consequences",
+            "title": "People",
+            "body": "Livelihoods, values, health, and collective memory shape how change is experienced and which forms of resilience are considered desirable."
+          },
+          "knowledge": {
+            "kicker": "Learning and uncertainty",
+            "title": "Knowledge",
+            "body": "Monitoring, models, local experience, and plural knowledge systems help reveal feedbacks while also making uncertainty visible."
+          },
+          "institutions": {
+            "kicker": "Rules and capacity",
+            "title": "Institutions",
+            "body": "Governance can buffer disturbance, reinforce vulnerability, or create the flexibility needed for adaptation and transformation."
+          },
+          "finance": {
+            "kicker": "Resource flows",
+            "title": "Finance",
+            "body": "Capital can amplify extraction or support restoration, but financial responses need to account for cross-scale ecological feedbacks."
+          },
+          "futures": {
+            "kicker": "Anticipation",
+            "title": "Futures",
+            "body": "Scenarios expose assumptions about stability and surprise, helping groups test how today’s choices may alter future resilience."
+          }
+        }
+      },
+      {
+        "id": "futures",
+        "label": "Futures",
+        "default_node": "futures",
+        "active_nodes": [
+          "biosphere",
+          "people",
+          "knowledge",
+          "institutions",
+          "futures"
+        ],
+        "title": "How imagined futures reshape choices in the present",
+        "summary": "Futures work connects plural values, grounded examples, and social-ecological knowledge so that communities and organizations can compare pathways rather than inherit a single forecast.",
+        "question": "Which futures become thinkable, for whom, and how do scenarios change present-day relationships and decisions?",
+        "link": "/research/#scenario-futures",
+        "link_label": "Explore scenarios and futures",
+        "nodes": {
+          "biosphere": {
+            "kicker": "Possible ecological conditions",
+            "title": "Biosphere",
+            "body": "Scenarios consider how ecosystems, biodiversity, and Earth-system feedbacks might respond under different pathways."
+          },
+          "people": {
+            "kicker": "Values and agency",
+            "title": "People",
+            "body": "Desirable futures differ across communities. Participatory processes make values, conflicts, hopes, and agency part of the analysis."
+          },
+          "knowledge": {
+            "kicker": "Multiple ways of knowing",
+            "title": "Knowledge",
+            "body": "Models, narratives, local experience, and creative methods can be combined to explore uncertainty without pretending to predict it away."
+          },
+          "institutions": {
+            "kicker": "Pathways and lock-in",
+            "title": "Institutions",
+            "body": "Rules and organizations stabilize some pathways and exclude others; scenarios help reveal where institutional change may open alternatives."
+          },
+          "finance": {
+            "kicker": "Investment in pathways",
+            "title": "Finance",
+            "body": "Investment choices shape which infrastructures and activities expand, making finance a powerful mechanism for locking in or redirecting futures."
+          },
+          "futures": {
+            "kicker": "Plural possibility",
+            "title": "Futures",
+            "body": "Futures are not forecasts. They are structured ways to explore alternatives, surprises, trade-offs, and the consequences of different values."
+          }
+        }
+      },
+      {
+        "id": "finance",
+        "label": "Biodiversity finance",
+        "default_node": "finance",
+        "active_nodes": [
+          "biosphere",
+          "people",
+          "knowledge",
+          "institutions",
+          "finance",
+          "futures"
+        ],
+        "title": "How financial systems shape biodiversity—and are shaped by it",
+        "summary": "Biodiversity finance research links ecological dependencies and impacts with financial functions, regulation, reporting, and competing ideas of what a nature-positive future should value.",
+        "question": "How can finance support ecological resilience and plural nature values without reducing living systems to a single price or metric?",
+        "link": "https://finbio.org/",
+        "link_label": "Visit the FinBio programme",
+        "nodes": {
+          "biosphere": {
+            "kicker": "Dependencies and impacts",
+            "title": "Biosphere",
+            "body": "Economic activity depends on living systems while also altering them; these two-way relationships are uneven, dynamic, and often poorly represented."
+          },
+          "people": {
+            "kicker": "Distribution and justice",
+            "title": "People",
+            "body": "Financial and ecological change create different risks and opportunities across places and groups, raising questions of participation, equity, and legitimacy."
+          },
+          "knowledge": {
+            "kicker": "Evidence for decisions",
+            "title": "Knowledge",
+            "body": "Ecological monitoring, scenarios, accounting, and risk analysis each illuminate part of the system; no single measure captures biodiversity’s plurality."
+          },
+          "institutions": {
+            "kicker": "Rules of the system",
+            "title": "Institutions",
+            "body": "Disclosure standards, mandates, regulation, and governance influence what financial actors notice, value, and are able or required to change."
+          },
+          "finance": {
+            "kicker": "Capital allocation",
+            "title": "Finance",
+            "body": "Banks, investors, insurers, and public finance distribute resources and risk, influencing which economic activities grow and which decline."
+          },
+          "futures": {
+            "kicker": "Nature-positive pathways",
+            "title": "Futures",
+            "body": "Exploratory scenarios can test how financial functions might operate under different relationships with nature and different conceptions of value."
+          }
+        }
+      }
+    ]
+  },
+  "research_stories": [
+    {
+      "kicker": "Biodiversity finance",
+      "title": "When biodiversity loss becomes a financial question",
+      "lead": "Financial decisions shape economies that depend on living systems, yet ecological dependencies, impacts, and plural values are still only partially represented in financial practice.",
+      "flow": [
+        "Biosphere change",
+        "Economic dependency",
+        "Financial decisions",
+        "Ecological outcomes"
+      ],
+      "evidence": "FinBio brings ecology, finance, law, accounting, futures, and decision science together to develop scenarios, evidence, and practical approaches for nature-positive financial systems.",
+      "use": "For researchers, financial institutions, regulators, and standard-setters working on biodiversity-related dependencies, impacts, future risks, and institutional change.",
+      "open_question": "How can financial rules and incentives change without reducing biodiversity to one metric, privileging only instrumental values, or shifting harms elsewhere?",
+      "links": [
+        {
+          "label": "Visit FinBio",
+          "url": "https://finbio.org/"
+        },
+        {
+          "label": "Nature Finance Futures — conference abstract",
+          "url": "https://doi.org/10.5194/wbf2026-172"
+        }
+      ]
+    },
+    {
+      "kicker": "Seeds of Good Anthropocenes",
+      "title": "Using existing initiatives to imagine diverse desirable futures",
+      "lead": "Sustainability narratives often begin with crisis. The Seeds initiative begins with real initiatives already creating different relationships between people and nature, then asks what they could become.",
+      "flow": [
+        "Existing initiative",
+        "Shared pattern",
+        "Future scenario",
+        "Collective possibility"
+      ],
+      "evidence": "The open database supports comparison among sustainability initiatives and provides grounded material for scenario processes that combine empirical examples with plural visions of the future.",
+      "use": "For educators, communities, scenario practitioners, and researchers seeking constructive, evidence-based starting points for conversations about transformation.",
+      "open_question": "Which seeds can grow, combine, or transform at larger scales—and which may lose their value when removed from local histories and relationships?",
+      "links": [
+        {
+          "label": "Explore the Seeds database",
+          "url": "https://goodanthropocenes.net/"
+        },
+        {
+          "label": "Read “Bright spots”",
+          "url": "https://doi.org/10.1002/fee.1309"
+        }
+      ]
+    },
+    {
+      "kicker": "Regime shifts",
+      "title": "Following abrupt change across systems and scales",
+      "lead": "Abrupt ecological changes rarely remain isolated. Drivers, feedbacks, and responses can connect ecosystems, economies, and institutions, producing persistent and sometimes cascading change.",
+      "flow": [
+        "Driver",
+        "Threshold",
+        "Regime shift",
+        "Cascading effects"
+      ],
+      "evidence": "The Regime Shifts Database organizes types and examples of persistent social-ecological change. Comparative research on cascading regime shifts highlights why cross-scale interactions matter for risk and resilience.",
+      "use": "For scientists, managers, and decision-makers who need to compare system changes, identify recurring drivers, and consider where monitoring or intervention may be most useful.",
+      "open_question": "Which combinations of feedbacks make cascades more likely, and where can action interrupt a cascade without creating new vulnerabilities?",
+      "links": [
+        {
+          "label": "Explore the Regime Shifts Database",
+          "url": "https://regimeshifts.org/"
+        },
+        {
+          "label": "Read “Cascading regime shifts”",
+          "url": "https://doi.org/10.1126/science.aat7850"
+        }
+      ]
+    }
+  ],
+  "research_uses": [
+    {
+      "title": "Explore and compare cases",
+      "description": "Use open databases to examine regime shifts, sustainability initiatives, and place-based scenario processes across regions and systems.",
+      "links": [
+        {
+          "label": "Regime Shifts",
+          "url": "https://regimeshifts.org/"
+        },
+        {
+          "label": "Seeds",
+          "url": "https://goodanthropocenes.net/"
+        },
+        {
+          "label": "Biosphere Futures",
+          "url": "https://biospherefutures.net/"
+        }
+      ]
+    },
+    {
+      "title": "Build and facilitate scenarios",
+      "description": "Draw on cases, futures methods, and examples of plural pathways when designing participatory scenario and foresight processes.",
+      "links": [
+        {
+          "label": "Biosphere Futures",
+          "url": "https://biospherefutures.net/"
+        },
+        {
+          "label": "Seeds of Good Anthropocenes",
+          "url": "https://goodanthropocenes.net/"
+        }
+      ]
+    },
+    {
+      "title": "Teach social-ecological systems",
+      "description": "Combine recorded talks with open teaching resources on methods for researching and working with social-ecological systems.",
+      "links": [
+        {
+          "label": "Selected talks",
+          "url": "/talks/"
+        },
+        {
+          "label": "SES Methods",
+          "url": "https://sesmethods.org/"
+        }
+      ]
+    },
+    {
+      "title": "Connect biodiversity and finance",
+      "description": "Follow research on nature-related financial systems, scenarios, disclosure, accounting, and pathways toward a resilient nature-positive economy.",
+      "links": [
+        {
+          "label": "FinBio",
+          "url": "https://finbio.org/"
+        },
+        {
+          "label": "Biodiversity finance research",
+          "url": "/research/#biodiversity-finance"
+        }
+      ]
+    },
+    {
+      "title": "Find and cite the research",
+      "description": "Search the publication catalogue or follow verified researcher profiles for identifiers, citations, and newly indexed work.",
+      "links": [
+        {
+          "label": "Publications",
+          "url": "/publications/"
+        },
+        {
+          "label": "ORCID",
+          "url": "https://orcid.org/0000-0003-0173-0112"
+        },
+        {
+          "label": "Google Scholar",
+          "url": "https://scholar.google.com/citations?hl=en&user=lbn4cl0AAAAJ"
+        }
+      ]
+    },
+    {
+      "title": "Collaborate or invite a contribution",
+      "description": "Get in touch about research collaboration, science-policy work, scenario processes, talks, or use of the open databases.",
+      "links": [
+        {
+          "label": "Contact",
+          "url": "/contact/"
+        },
+        {
+          "label": "Stockholm Resilience Centre profile",
+          "url": "https://www.stockholmresilience.org/meet-our-team/staff/2008-08-27-peterson.html"
+        }
+      ]
+    }
+  ],
+  "intellectual_questions": [
+    {
+      "id": "people-nature-connections",
+      "title": "How are people and nature connected?",
+      "short_title": "People and nature",
+      "description": "Biodiversity, ecosystem services, landscapes, livelihoods, institutions, and financial dependencies reveal how ecological and social systems jointly shape human well-being.",
+      "image": "/images/hero-biosphere-map.svg",
+      "links": [
+        {
+          "label": "Explore connected research",
+          "url": "/research/#people-nature-connections"
+        },
+        {
+          "label": "Browse related publications",
+          "url": "/publications/?question=people-nature-connections"
+        }
+      ]
+    },
+    {
+      "id": "social-ecological-change",
+      "title": "How and why do social-ecological systems change?",
+      "short_title": "System change",
+      "description": "Feedbacks, thresholds, disturbance, resilience, and interactions across scales help explain persistence, surprise, and abrupt reorganization.",
+      "image": "/images/story-regime.svg",
+      "links": [
+        {
+          "label": "Explore system change",
+          "url": "/research/#social-ecological-change"
+        },
+        {
+          "label": "Browse related publications",
+          "url": "/publications/?question=social-ecological-change"
+        }
+      ]
+    },
+    {
+      "id": "navigate-shape-futures",
+      "title": "How can people navigate and shape uncertain futures?",
+      "short_title": "Futures",
+      "description": "Scenarios, plural values, collective action, governance, and institutional change can help people explore alternatives and build more desirable pathways.",
+      "image": "/images/story-seeds.svg",
+      "links": [
+        {
+          "label": "Explore futures research",
+          "url": "/research/#navigate-shape-futures"
+        },
+        {
+          "label": "Browse related publications",
+          "url": "/publications/?question=navigate-shape-futures"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Research</p><h1>Connections, change, and uncertain futures</h1><p>The research programme is organised around three overlapping questions and five non-exclusive domains. This structure reflects how individual papers often connect ecological dynamics, institutions, methods, and applications.</p></div></section>
+<section class="section shell">
+  <div class="section-heading split"><div><p class="eyebrow">Guiding questions</p><h2>Three questions organise the intellectual programme.</h2></div><p>Each question links to a live publication view. Counts are generated from the current publication metadata.</p></div>
+  <div class="question-grid">
+  {% for id, q in taxonomy.questions.items() %}
+    <article class="question-card" id="{{ id }}"><span class="question-number">0{{ loop.index }}</span><h3>{{ q.title }}</h3><p>{{ q.description }}</p><p><strong>{{ question_counts[id] }}</strong> currently indexed works</p><div class="question-links"><a href="/publications/?question={{ id }}">Browse matching publications →</a></div></article>
+  {% endfor %}
+  </div>
+</section>
+<section class="section research-domains-section">
+  <div class="shell"><div class="section-heading split"><div><p class="eyebrow">Research domains</p><h2>Five non-exclusive ways into the work.</h2></div><p>Domains are descriptive tags rather than disciplinary boxes. A publication can contribute to several domains and questions.</p></div>
+  <div class="research-grid">
+  {% for id, area in taxonomy.themes.items() %}
+    <article class="research-card" id="{{ id }}"><span>0{{ loop.index }}</span><h2>{{ area.title }}</h2><p>{{ area.description }}</p><p class="domain-count">{{ theme_counts[id] }} indexed works</p><ul>
+      {% set ns = namespace(count=0) %}
+      {% for pub in publications %}{% if id in pub.theme_ids and ns.count < 4 %}<li><span>{{ pub.year }}</span>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</li>{% set ns.count = ns.count + 1 %}{% endif %}{% endfor %}
+      </ul><a class="button text-dark" href="/publications/?theme={{ id }}">See all matching works →</a></article>
+  {% endfor %}
+  </div></div>
+</section>
+<section class="section shell taxonomy-explainer"><div class="section-heading split"><div><p class="eyebrow">How the system is maintained</p><h2>Automatic facts, reviewed interpretation.</h2></div><p>ORCID and DOI services supply bibliographic metadata. The questions, themes, summaries, and featured status are held in a separate curation file so synchronization cannot overwrite scholarly judgement.</p></div></section>
+{% endblock %}

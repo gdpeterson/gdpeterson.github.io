@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 720" role="img" aria-labelledby="t d">
+<title id="t">Biodiversity and finance feedbacks</title><desc id="d">An original illustration of ecological diversity connected to financial institutions and decision loops.</desc>
+<rect width="520" height="720" fill="#002f5f"/>
+<circle cx="260" cy="260" r="150" fill="#a1d8e0" opacity=".22"/><circle cx="260" cy="260" r="106" fill="#a3a86b" opacity=".38"/>
+<g fill="none" stroke="#f7f4ea" stroke-width="5" stroke-linecap="round">
+<path d="M261 343c-11-78 4-145 71-203"/><path d="M261 343c24-84 1-160-71-213"/><path d="M260 343V142"/>
+</g>
+<g fill="#eb7125"><circle cx="331" cy="140" r="17"/><circle cx="190" cy="130" r="15"/><circle cx="260" cy="142" r="14"/></g>
+<g fill="#f7f4ea"><path d="M118 500h284v20H118z"/><path d="M144 520h44v98h-44zM220 520h44v98h-44zM296 520h44v98h-44zM372 520h20v98h-20z"/><path d="M102 618h316v26H102z"/><path d="M118 500l142-90 142 90z"/></g>
+<path d="M91 426c33-70 91-111 171-120" fill="none" stroke="#eb7125" stroke-width="9" stroke-linecap="round"/><path d="m83 390 8 36 35-10" fill="none" stroke="#eb7125" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M429 360c-24 68-78 113-156 130" fill="none" stroke="#a3a86b" stroke-width="9" stroke-linecap="round"/><path d="m435 397-6-37-36 8" fill="none" stroke="#a3a86b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
