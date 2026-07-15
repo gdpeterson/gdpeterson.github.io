@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 720" role="img" aria-labelledby="t d">
+<title id="t">Thresholds and regime shifts</title><desc id="d">An original illustration of a social-ecological system crossing a threshold between alternate states.</desc>
+<rect width="520" height="720" fill="#163f35"/>
+<path d="M0 438c91-57 173-73 259-20 83 51 167 41 261-16v318H0Z" fill="#9bb2ce"/>
+<path d="M0 366c87-46 166-47 257 2 82 45 170 41 263-16v104c-101 50-187 49-270 2-85-48-165-43-250 13Z" fill="#a3a86b"/>
+<path d="M260 80v560" stroke="#eb7125" stroke-width="7" stroke-dasharray="12 14"/>
+<g fill="#f7f4ea"><path d="M72 331l31-69 31 69h-20v65H92v-65Z"/><path d="M150 300l25-56 25 56h-16v54h-18v-54Z"/></g>
+<g fill="#002f5f"><rect x="336" y="278" width="43" height="85"/><rect x="386" y="245" width="56" height="118"/><rect x="448" y="304" width="28" height="59"/></g>
+<path d="M83 171c58-71 151-94 236-58 58 24 99 67 119 122" fill="none" stroke="#f7f4ea" stroke-width="8" stroke-linecap="round"/>
+<path d="m405 198 33 37 20-45" fill="none" stroke="#f7f4ea" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M437 536c-52 72-140 104-227 79-64-18-111-58-139-111" fill="none" stroke="#eb7125" stroke-width="8" stroke-linecap="round"/>
+<path d="m92 541-21-37-28 35" fill="none" stroke="#eb7125" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

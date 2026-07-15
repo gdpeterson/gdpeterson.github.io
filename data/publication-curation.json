@@ -1,4 +1,53 @@
 {
-  "_comment": "Human-reviewed metadata keyed by DOI (preferred), ORCID put-code, or normalized local publication id. ORCID imports never overwrite this file.",
-  "records": {}
+  "_comment": "Human-reviewed metadata and DOI corrections keyed by DOI (preferred), ORCID put-code, or normalized local publication id. ORCID imports never overwrite this file.",
+  "records": {
+    "doi:10.5194/wbf2026-172": {
+      "themes": [
+        "biodiversity-finance",
+        "scenarios-futures"
+      ],
+      "questions": [
+        "people-nature-connections",
+        "navigate-shape-futures"
+      ],
+      "output_type": "Conference abstract",
+      "summary": "Exploratory scenarios examine how financial systems could shift toward nature-positive pathways while retaining ecological complexity and plural values.",
+      "review_status": "reviewed"
+    },
+    "local:reconnecting-to-the-biosphere": {
+      "themes": [
+        "ecosystem-services-biodiversity",
+        "governance-transformation",
+        "resilience-regime-shifts"
+      ],
+      "questions": [
+        "people-nature-connections",
+        "social-ecological-change"
+      ],
+      "summary": "A foundational synthesis arguing that human prosperity depends on reconnecting institutions, knowledge, and action to the biosphere that supports society.",
+      "review_status": "reviewed",
+      "doi": "10.1007/s13280-011-0184-y"
+    },
+    "local:ecological-resilience-biodiversity-and-scale": {
+      "doi": "10.1007/s100219900002"
+    },
+    "local:scaling-ecological-dynamics-self-organization-hierarchical-structure-and-ecological-resilience": {
+      "doi": "10.1023/A:1005502718799"
+    },
+    "local:response-diversity-ecosystem-change-and-resilience": {
+      "doi": "10.1890/1540-9295(2003)001[0488:RDECAR]2.0.CO;2"
+    },
+    "local:scenario-planning-a-tool-for-conservation-in-an-uncertain-world": {
+      "doi": "10.1046/j.1523-1739.2003.01491.x"
+    },
+    "local:understanding-relationships-among-multiple-ecosystem-services": {
+      "doi": "10.1111/j.1461-0248.2009.01387.x"
+    },
+    "local:ecosystem-service-bundles-for-analyzing-tradeoffs-in-diverse-landscapes": {
+      "doi": "10.1073/pnas.0907284107"
+    },
+    "local:untangling-the-environmentalist-s-paradox-why-is-human-well-being-increasing-as-ecosystem-services-d": {
+      "doi": "10.1525/bio.2010.60.8.4"
+    }
+  }
 }

@@ -1,0 +1,30 @@
+{% set initial_lens = profile.explorer.lenses[0] %}
+{% set initial_node = initial_lens.default_node %}
+{% set initial_detail = initial_lens.nodes[initial_node] %}
+<div class="systems-explorer" data-system-explorer data-lens="{{ initial_lens.id }}" data-node="{{ initial_node }}">
+  <div class="explorer-tabs" role="tablist" aria-label="Choose a research lens">
+    {% for lens in profile.explorer.lenses %}
+    <button class="explorer-tab" type="button" role="tab" data-lens="{{ lens.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}">{{ lens.label }}</button>
+    {% endfor %}
+  </div>
+  <div class="explorer-layout">
+    <div class="explorer-stage" aria-label="Interactive map of social-ecological connections">
+      <svg class="explorer-lines" viewBox="0 0 800 560" role="img" aria-label="Connections highlighted according to the selected research lens">
+        <g class="path-group path-resilience"><path d="M110 120 Q245 175 400 280"/><path d="M690 120 Q555 175 400 280"/><path d="M100 440 Q245 365 400 280"/><path d="M700 440 Q555 365 400 280"/><path d="M110 120 Q350 60 690 120"/></g>
+        <g class="path-group path-futures"><path d="M400 65 L400 280"/><path d="M400 65 Q545 70 690 120"/><path d="M400 65 Q245 220 100 440"/><path d="M400 65 Q585 255 700 440"/><path d="M110 120 Q255 160 400 280"/></g>
+        <g class="path-group path-finance"><path d="M400 500 L400 280"/><path d="M400 500 Q555 480 700 440"/><path d="M400 500 Q610 305 690 120"/><path d="M400 500 Q210 305 110 120"/><path d="M100 440 Q250 485 400 500"/></g>
+      </svg>
+      <div class="explorer-centre"><strong>social–ecological</strong><span>system</span></div>
+      {% for node in profile.explorer.nodes %}
+      <button class="system-node node-{{ node.id }}{% if node.id in initial_lens.active_nodes %} is-related{% endif %}{% if node.id == initial_node %} is-selected{% endif %}" type="button" data-node="{{ node.id }}" aria-pressed="{{ 'true' if node.id == initial_node else 'false' }}"><span>{{ node.label }}</span></button>
+      {% endfor %}
+    </div>
+    <aside class="explorer-panel" aria-live="polite" aria-atomic="true">
+      <p class="explorer-lens-label" id="explorer-lens-label">{{ initial_lens.label }} lens</p><h3 id="explorer-lens-title">{{ initial_lens.title }}</h3><p class="explorer-summary" id="explorer-lens-summary">{{ initial_lens.summary }}</p>
+      <div class="explorer-node-detail"><span id="explorer-node-kicker">{{ initial_detail.kicker }}</span><h4 id="explorer-node-title">{{ initial_detail.title }}</h4><p id="explorer-node-body">{{ initial_detail.body }}</p></div>
+      <p class="explorer-question"><strong>Guiding question</strong><span id="explorer-question">{{ initial_lens.question }}</span></p>
+      <a class="button paper" id="explorer-link" href="{{ initial_lens.link }}">{{ initial_lens.link_label }} <span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+</div>
+<script type="application/json" id="explorer-data">{{ profile.explorer | tojson }}</script>

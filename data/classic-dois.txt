@@ -1,0 +1,13 @@
+# One DOI per line. Blank lines and text after # are ignored.
+# Keep ten entries for the intended homepage rotation.
+
+10.1007/s100219900002 # Ecological resilience, biodiversity, and scale (1998)
+10.1023/A:1005502718799 # Scaling ecological dynamics (2000)
+10.1890/1540-9295(2003)001[0488:RDECAR]2.0.CO;2 # Response diversity, ecosystem change, and resilience (2003)
+10.1046/j.1523-1739.2003.01491.x # Scenario planning in an uncertain world (2003)
+10.5751/ES-01556-110116 # Water RATs (2006)
+10.1111/j.1461-0248.2009.01387.x # Relationships among multiple ecosystem services (2009)
+10.1073/pnas.0907284107 # Ecosystem service bundles (2010)
+10.1525/bio.2010.60.8.4 # Environmentalist's paradox (2010)
+10.1007/s13280-011-0184-y # Reconnecting to the biosphere (2011)
+10.1126/science.aat7850 # Cascading regime shifts (2018)

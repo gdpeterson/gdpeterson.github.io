@@ -1,0 +1,56 @@
+{
+  "favicon": {
+    "src": "/images/favicon.svg",
+    "alt": ""
+  },
+  "footer_mark": {
+    "src": "/images/connection-mark.svg",
+    "alt": ""
+  },
+  "page_contour": {
+    "src": "/images/contour-field.svg",
+    "alt": ""
+  },
+  "portrait": {
+    "src": "/images/garry-peterson.png",
+    "alt": "Portrait of Garry Peterson",
+    "width": 409,
+    "height": 550
+  },
+  "hero_research": {
+    "src": "/images/hero-biosphere-map.svg",
+    "alt": "Abstract connected landscape linking water, vegetation, settlements, and institutions"
+  },
+  "question_people_nature": {
+    "src": "/images/hero-biosphere-map.svg",
+    "alt": "Connected social-ecological landscape"
+  },
+  "question_change": {
+    "src": "/images/story-regime.svg",
+    "alt": "Diagram of thresholds and changing ecological states"
+  },
+  "question_futures": {
+    "src": "/images/story-seeds.svg",
+    "alt": "Branching pathways representing alternative futures"
+  },
+  "current_finbio": {
+    "src": "/images/story-finance.svg",
+    "alt": "Systems illustration connecting biodiversity, finance, and ecological outcomes"
+  },
+  "current_futures": {
+    "src": "/images/story-seeds.svg",
+    "alt": "Branching pathways representing participatory futures"
+  },
+  "story_finance": {
+    "src": "/images/story-finance.svg",
+    "alt": "Systems illustration connecting biodiversity, financial institutions, and ecological outcomes"
+  },
+  "story_seeds": {
+    "src": "/images/story-seeds.svg",
+    "alt": "Branching pathways representing sustainability initiatives and desirable futures"
+  },
+  "story_regime": {
+    "src": "/images/story-regime.svg",
+    "alt": "Diagram of thresholds, regime shifts, and alternative ecological states"
+  }
+}

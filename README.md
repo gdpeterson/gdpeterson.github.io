@@ -1,60 +1,71 @@
 # Garry Peterson academic website
 
-Source for the GitHub Pages project site at `https://gdpeterson.github.io/`.
+Source for `https://gdpeterson.github.io/`. The site is a lightweight static
+Jinja build with no database or framework runtime. Pushing to `main` triggers a
+GitHub Pages deployment.
 
-The site uses a biophilic, systems-oriented visual language to foreground connections among people, nature, resilience, and futures. Its typography and accent palette are informed by the public Stockholm Resilience Centre graphic manual (Lato, Fire, Water, Sky, Olive, and Stockholm University Blue), while the design remains a distinct personal academic identity rather than an official SRC template. Original illustrations draw on themes in Peterson’s research and Resilience Alliance practice: landscape mosaics, feedbacks, thresholds, participatory futures, and cross-scale connections. The homepage includes an accessible interactive systems explorer, audience-specific pathways, evidence-rich research stories, and direct routes for reusing the research. It is a static Jinja-based build; the only browser-time design dependency is the Lato stylesheet served by Google Fonts.
+## Project structure
 
-## Edit content
+```text
+content/profile.json             Editorial text and structured site content
+data/images.json                 Named image catalog used by all templates
+data/publications-csl.json       Machine-managed ORCID/CSL bibliography
+data/publication-curation.json   Human-reviewed publication interpretation
+data/classic-dois.txt            Homepage classic-paper DOI list
+data/taxonomy.json               Three questions and five research domains
+scripts/build.py                 Build orchestration only
+scripts/site_utils.py            Generic JSON, text, URL, and image helpers
+scripts/publications.py          Publication normalization and selection
+scripts/update_orcid.py          ORCID/Crossref synchronization
+assets/css/site.css              Visual design
+assets/js/site.js                JavaScript entry point
+assets/js/modules/               One module per interactive feature
+templates/                       Jinja page templates and shared image macro
+static/images/                   Source images copied to the built site
+```
 
-- Profile, biography, audience pathways, systems-explorer content, research stories, reuse pathways, projects, roles, talks, grants, awards, and external profiles: `content/profile.json`
-- Publications: `data/publications-csl.json`
-- Styling: `assets/css/site.css`
-- Page templates: `templates/`
+## Routine edits
+
+- Text, current work, projects, stories, talks, and external links:
+  `content/profile.json`
+- Image files and alt text: `static/images/` plus `data/images.json`
+- Publication interpretation: `data/publication-curation.json`
+- Classic homepage papers: `data/classic-dois.txt`
+- Taxonomy labels: `data/taxonomy.json`
+
+Detailed instructions:
+
+- [Updating images](IMAGES.md)
+- [Updating publications](PUBLICATIONS.md)
 
 ## Local preview
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/build.py
+SITE_BASE="" SITE_URL="https://gdpeterson.github.io" python scripts/build.py
 python -m http.server 4173 --directory dist
 ```
 
-Then open `http://localhost:4173`.
+Open `http://localhost:4173/`.
+
+For a reproducible homepage-paper selection during testing:
+
+```bash
+HOMEPAGE_RANDOM_SEED=preview python scripts/build.py
+```
+
+## Design and code principles
+
+- Content, images, publication data, build logic, templates, and interactions
+  are kept in separate modules.
+- Templates use named image keys rather than hard-coded filenames.
+- The build validates image paths and classic DOI resolution before publishing.
+- JavaScript progressively enhances a complete static fallback.
+- ORCID synchronization opens a review pull request; it does not overwrite
+  curated research categories or publish directly.
 
 ## Publish
 
-Pushing to `main` triggers `.github/workflows/pages.yml`. The workflow builds with the root-site base path `/` and deploys `dist/`. GitHub Pages must be configured to use **GitHub Actions** as the source.
-
-## Maintainable research taxonomy
-
-The site uses two non-exclusive layers:
-
-- Three guiding questions and five research domains are defined once in `data/taxonomy.json`.
-- Bibliographic facts are stored in `data/publications-csl.json` and can be refreshed from ORCID.
-- Human-reviewed interpretation is stored separately in `data/publication-curation.json`, keyed by DOI where possible.
-
-The build merges these files into the Publications page, `dist/publications.json`, homepage selections, counts, and shareable filtered URLs.
-
-### Update publications
-
-Run **Actions → Update publications from ORCID → Run workflow**. The monthly workflow also runs automatically and opens a pull request; it never publishes directly. Review new records and add or revise their non-exclusive metadata in `data/publication-curation.json` before merging.
-
-Example:
-
-```json
-"doi:10.1000/example": {
-  "themes": ["scenarios-futures", "governance-transformation"],
-  "questions": ["navigate-shape-futures", "people-nature-connections"],
-  "featured": true,
-  "summary": "Plain-language account of the paper's contribution.",
-  "review_status": "reviewed"
-}
-```
-
-For a local refresh:
-
-```bash
-python scripts/update_orcid.py
-pip install -r requirements.txt
-python scripts/build.py
-```
+Commit and push to `main`. The workflow in `.github/workflows/pages.yml` builds
+with the root-site path and deploys `dist/`. GitHub Pages must use **GitHub
+Actions** as its source.

@@ -4,7 +4,7 @@
   "title": "Professor of Resilience in Social-Ecological Systems",
   "institution": "Stockholm Resilience Centre, Stockholm University",
   "email": "garry.peterson@su.se",
-  "intro": "Garry Peterson studies how people and nature shape one another through change. His work connects resilience, social-ecological systems, and futures thinking with practical questions in biodiversity, governance, and finance.",
+  "intro": "I study how people and nature shape one another, especially when social-ecological systems change in surprising ways. My work combines resilience thinking, comparative analysis, participatory scenarios, and open research resources to help people understand change and explore more desirable futures.",
   "bio": [
     "Garry Peterson is a professor in environmental sciences with emphasis on resilience and social-ecological systems at the Stockholm Resilience Centre, Stockholm University. He directs Mistra Finance to Revive Biodiversity (FinBio), an international research programme connecting biodiversity science, finance, and practical action toward a nature-positive economy.",
     "His research integrates three themes: connections between people and nature, the dynamics of resilience, and how thinking about the future can help people and organizations navigate surprising social-ecological change. He combines quantitative analysis, systems modelling, qualitative analysis, and participatory research.",
@@ -23,10 +23,6 @@
     {
       "value": "20+ years",
       "label": "international science-policy assessment and leadership"
-    },
-    {
-      "value": "87",
-      "label": "Google Scholar h-index reported in September 2025"
     }
   ],
   "research_areas": [
@@ -495,7 +491,8 @@
           "label": "Nature Finance Futures — conference abstract",
           "url": "https://doi.org/10.5194/wbf2026-172"
         }
-      ]
+      ],
+      "image_key": "story_finance"
     },
     {
       "kicker": "Seeds of Good Anthropocenes",
@@ -519,7 +516,8 @@
           "label": "Read “Bright spots”",
           "url": "https://doi.org/10.1002/fee.1309"
         }
-      ]
+      ],
+      "image_key": "story_seeds"
     },
     {
       "kicker": "Regime shifts",
@@ -543,7 +541,8 @@
           "label": "Read “Cascading regime shifts”",
           "url": "https://doi.org/10.1126/science.aat7850"
         }
-      ]
+      ],
+      "image_key": "story_regime"
     }
   ],
   "research_uses": [
@@ -646,7 +645,6 @@
       "title": "How are people and nature connected?",
       "short_title": "People and nature",
       "description": "Biodiversity, ecosystem services, landscapes, livelihoods, institutions, and financial dependencies reveal how ecological and social systems jointly shape human well-being.",
-      "image": "/images/hero-biosphere-map.svg",
       "links": [
         {
           "label": "Explore connected research",
@@ -656,14 +654,14 @@
           "label": "Browse related publications",
           "url": "/publications/?question=people-nature-connections"
         }
-      ]
+      ],
+      "image_key": "question_people_nature"
     },
     {
       "id": "social-ecological-change",
       "title": "How and why do social-ecological systems change?",
       "short_title": "System change",
       "description": "Feedbacks, thresholds, disturbance, resilience, and interactions across scales help explain persistence, surprise, and abrupt reorganization.",
-      "image": "/images/story-regime.svg",
       "links": [
         {
           "label": "Explore system change",
@@ -673,14 +671,14 @@
           "label": "Browse related publications",
           "url": "/publications/?question=social-ecological-change"
         }
-      ]
+      ],
+      "image_key": "question_change"
     },
     {
       "id": "navigate-shape-futures",
       "title": "How can people navigate and shape uncertain futures?",
       "short_title": "Futures",
       "description": "Scenarios, plural values, collective action, governance, and institutional change can help people explore alternatives and build more desirable pathways.",
-      "image": "/images/story-seeds.svg",
       "links": [
         {
           "label": "Explore futures research",
@@ -690,7 +688,45 @@
           "label": "Browse related publications",
           "url": "/publications/?question=navigate-shape-futures"
         }
-      ]
+      ],
+      "image_key": "question_futures"
     }
-  ]
+  ],
+  "current_focus": [
+    {
+      "kicker": "Current programme",
+      "title": "Finance to Revive Biodiversity",
+      "description": "FinBio connects ecology, finance, law, accounting, and futures research to help financial systems recognize their dependencies and impacts on biodiversity—and support a resilient, nature-positive economy.",
+      "meta": "Director · Phase I 2022–2026 · Phase II 2027–2031",
+      "url": "https://finbio.org/",
+      "link_label": "Explore FinBio",
+      "image_key": "current_finbio"
+    },
+    {
+      "kicker": "Current research theme",
+      "title": "Transformative Futures",
+      "description": "Research on how scenarios, plural values, imagination, and collective action can help people navigate uncertainty and create more diverse, desirable social-ecological futures.",
+      "meta": "Co-lead · Stockholm Resilience Centre · 2024–present",
+      "url": "/research/#navigate-shape-futures",
+      "link_label": "Explore futures research",
+      "image_key": "current_futures"
+    }
+  ],
+  "homepage": {
+    "featured_story_index": 0,
+    "compact_routes": [
+      {
+        "label": "Use open data and methods",
+        "url": "/projects/"
+      },
+      {
+        "label": "Apply the research",
+        "url": "/research/"
+      },
+      {
+        "label": "Collaborate or invite a talk",
+        "url": "/contact/"
+      }
+    ]
+  }
 }

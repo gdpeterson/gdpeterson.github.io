@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="t d">
+  <title id="t">People and nature as a connected landscape</title>
+  <desc id="d">An original abstract landscape showing water, vegetation, settlements, people and feedback connections.</desc>
+  <rect width="900" height="700" fill="#f4efe4"/>
+  <path d="M0 500C155 430 280 570 430 500s264-96 470-6v206H0Z" fill="#9bb2ce"/>
+  <path d="M0 410C130 330 260 400 365 350s225-120 535-34v234c-190-60-318-6-470 20S156 493 0 545Z" fill="#a3a86b"/>
+  <path d="M0 270c105-53 218-39 340-87 111-44 205-114 560-69v203c-262-61-392 6-535 57C225 424 119 373 0 431Z" fill="#d8d8bd"/>
+  <path d="M0 0h900v135c-266-44-397 8-550 67C213 255 94 217 0 253Z" fill="#a1d8e0"/>
+  <g fill="#002f5f">
+    <rect x="600" y="208" width="48" height="72"/><rect x="654" y="180" width="55" height="100"/><rect x="716" y="225" width="35" height="55"/>
+    <rect x="654" y="160" width="8" height="20"/><rect x="682" y="150" width="8" height="30"/>
+  </g>
+  <g fill="#eb7125">
+    <circle cx="182" cy="260" r="15"/><circle cx="256" cy="326" r="12"/><circle cx="520" cy="255" r="13"/><circle cx="732" cy="360" r="14"/>
+  </g>
+  <g stroke="#002f5f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8">
+    <path d="M182 260C290 188 401 190 520 255"/><path d="M256 326C340 407 596 445 732 360"/><path d="M520 255c96 16 130 45 212 105"/>
+  </g>
+  <g fill="#163f35">
+    <path d="M100 317l28-63 28 63h-18v61h-20v-61Z"/><path d="M355 242l36-82 36 82h-24v80h-25v-80Z"/><path d="M808 248l25-55 25 55h-16v55h-18v-55Z"/>
+  </g>
+  <g fill="#fff" opacity=".85">
+    <circle cx="182" cy="260" r="5"/><circle cx="256" cy="326" r="4"/><circle cx="520" cy="255" r="4"/><circle cx="732" cy="360" r="5"/>
+  </g>
+  <path d="M54 605c123-48 242-37 366 11 143 55 282 43 426-4" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="2 18" stroke-linecap="round" opacity=".8"/>
+</svg>

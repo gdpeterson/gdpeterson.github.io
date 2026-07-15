@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% from "_image.html" import render as render_image %}
 {% block content %}
-<section class="page-hero"><img src="/images/contour-field.svg" alt=""><div class="shell narrow"><p class="eyebrow light">Publications</p><h1>A searchable record of {{ publication_count }} works</h1><p>Bibliographic records come from ORCID-compatible data and DOI metadata. Peterson-specific research categories are non-exclusive and reviewed separately, so automatic updates cannot erase editorial interpretation.</p></div></section>
+<section class="page-hero">{{ render_image(image('page_contour'), decorative=true) }}<div class="shell narrow"><p class="eyebrow light">Publications</p><h1>A searchable record of {{ publication_count }} works</h1><p>Bibliographic records come from ORCID-compatible data and DOI metadata. Peterson-specific research categories are non-exclusive and reviewed separately, so automatic updates cannot erase editorial interpretation.</p></div></section>
 <section class="section shell publications-section">
   <div class="provenance-note"><strong>Open publication record</strong><span>{% if sync.last_synced %}Last ORCID synchronization: {{ sync.last_synced }}.{% else %}The included records can be synchronized from ORCID using the repository workflow.{% endif %}</span><a href="/publications.json">Download JSON</a><a href="{{ profile.orcid_url }}" target="_blank" rel="noopener">View ORCID ↗</a></div>
   <div class="filters" data-publication-filters>

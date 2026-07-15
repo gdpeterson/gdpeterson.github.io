@@ -1,0 +1,11 @@
+{% macro render(asset, class_name='', loading='lazy', decorative=false) -%}
+<img
+  src="{{ asset.src }}"
+  alt="{{ '' if decorative else asset.alt }}"
+  {% if class_name %}class="{{ class_name }}"{% endif %}
+  {% if asset.width %}width="{{ asset.width }}"{% endif %}
+  {% if asset.height %}height="{{ asset.height }}"{% endif %}
+  {% if loading %}loading="{{ loading }}"{% endif %}
+  decoding="async"
+>
+{%- endmacro %}
