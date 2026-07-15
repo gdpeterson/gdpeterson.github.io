@@ -11,7 +11,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 SITE_BASE = os.environ.get('SITE_BASE', '').strip().rstrip('/')
-SITE_URL = os.environ.get('SITE_URL', 'https://gdpeterson.github.io/garrypeterson.github.io').strip().rstrip('/')
+SITE_URL = os.environ.get('SITE_URL', 'https://gdpeterson.github.io').strip().rstrip('/')
 
 
 def load_json(path: Path, default=None):

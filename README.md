@@ -1,6 +1,6 @@
 # Garry Peterson academic website
 
-Source for the GitHub Pages project site at `https://gdpeterson.github.io/garrypeterson.github.io/`.
+Source for the GitHub Pages project site at `https://gdpeterson.github.io/`.
 
 The site uses a biophilic, systems-oriented visual language to foreground connections among people, nature, resilience, and futures. Its typography and accent palette are informed by the public Stockholm Resilience Centre graphic manual (Lato, Fire, Water, Sky, Olive, and Stockholm University Blue), while the design remains a distinct personal academic identity rather than an official SRC template. Original illustrations draw on themes in Peterson’s research and Resilience Alliance practice: landscape mosaics, feedbacks, thresholds, participatory futures, and cross-scale connections. The homepage includes an accessible interactive systems explorer, audience-specific pathways, evidence-rich research stories, and direct routes for reusing the research. It is a static Jinja-based build; the only browser-time design dependency is the Lato stylesheet served by Google Fonts.
 
@@ -23,7 +23,7 @@ Then open `http://localhost:4173`.
 
 ## Publish
 
-Pushing to `main` triggers `.github/workflows/pages.yml`. The workflow builds with the project-site base path `/garrypeterson.github.io` and deploys `dist/`. GitHub Pages must be configured to use **GitHub Actions** as the source.
+Pushing to `main` triggers `.github/workflows/pages.yml`. The workflow builds with the root-site base path `/` and deploys `dist/`. GitHub Pages must be configured to use **GitHub Actions** as the source.
 
 ## Maintainable research taxonomy
 
