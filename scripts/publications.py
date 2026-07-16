@@ -1,8 +1,13 @@
-"""Publication normalization, curation, and homepage selection.
+"""Publication normalization, curation, access metadata, and homepage selection.
 
-Machine-managed bibliographic facts come from ``data/publications-csl.json``.
-Human-reviewed interpretation lives in ``data/publication-curation.json``.
-The two layers are merged here so ORCID updates cannot overwrite editorial tags.
+Data responsibilities are deliberately separated:
+
+* ``data/publications-csl.json`` contains machine-managed bibliographic facts.
+* ``data/publication-curation.json`` contains reviewed themes and summaries.
+* ``data/publication-access.json`` contains optional reviewed open-access facts.
+* ``data/classic-dois.txt`` controls the homepage classic-paper pool.
+
+The layers are merged here so ORCID updates cannot overwrite editorial work.
 """
 from __future__ import annotations
 
@@ -11,6 +16,7 @@ import os
 import random
 import re
 from typing import Any
+from urllib.parse import urlparse
 
 from site_utils import clean_text
 
@@ -55,6 +61,13 @@ def author_name(author: dict[str, Any]) -> str:
     )
 
 
+def is_peterson_author(name: str) -> bool:
+    """Identify Garry Peterson in common citation-name forms."""
+    normalized = re.sub(r"[^a-z]", " ", name.lower())
+    words = normalized.split()
+    return "peterson" in words and any(word in words for word in ("garry", "g", "gd"))
+
+
 def stable_key(publication: dict[str, Any], title: str) -> str:
     doi = normalize_doi(publication.get("DOI"))
     if doi:
@@ -64,6 +77,10 @@ def stable_key(publication: dict[str, Any], title: str) -> str:
         return f"orcid:{put_code}"
     slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:100]
     return f"local:{slug}"
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "other"
 
 
 def suggest_taxonomy(title: str, venue: str = "") -> tuple[list[str], list[str]]:
@@ -140,11 +157,54 @@ def publication_url(publication: dict[str, Any], doi: str = "") -> str:
     return f"https://doi.org/{resolved}" if resolved else clean_text(publication.get("URL"))
 
 
-def normalize_publications(raw, curation, taxonomy):
-    """Merge CSL records with the human-curated metadata overlay."""
+def infer_open_access(publication: dict[str, Any], venue: str, url: str) -> bool:
+    """Make only conservative open-access inferences.
+
+    Human-reviewed values in ``publication-access.json`` override this helper.
+    The inference intentionally favors false negatives over false positives.
+    """
+    host = urlparse(url).netloc.lower()
+    path = urlparse(url).path.lower()
+    open_hosts = (
+        "ecologyandsociety.org",
+        "figshare.com",
+        "zenodo.org",
+        "osf.io",
+        "biorxiv.org",
+        "openrxiv.org",
+        "researchsquare.com",
+        "arxiv.org",
+    )
+    if any(host == candidate or host.endswith(f".{candidate}") for candidate in open_hosts):
+        return True
+    if venue.strip().lower() == "ecology and society":
+        return True
+    return "open-access" in path or "open_access" in path
+
+
+def build_author_views(authors: list[str]) -> dict[str, Any]:
+    """Prepare full and compact author lists for accessible disclosure."""
+    items = [{"name": name, "is_peterson": is_peterson_author(name)} for name in authors]
+    if len(items) <= 6:
+        return {"authors": items, "authors_short": items, "authors_hidden_count": 0}
+
+    short = list(items[:3])
+    peterson = next((item for item in items if item["is_peterson"]), None)
+    if peterson and peterson not in short:
+        short.append(peterson)
+    return {
+        "authors": items,
+        "authors_short": short,
+        "authors_hidden_count": max(0, len(items) - len(short)),
+    }
+
+
+def normalize_publications(raw, curation, taxonomy, access=None):
+    """Merge CSL records with reviewed thematic and access metadata overlays."""
     normalized: list[dict[str, Any]] = []
     seen: set[Any] = set()
     records = curation.get("records", {})
+    access_records = (access or {}).get("records", {})
 
     for publication in raw:
         title = clean_text(publication.get("title"))
@@ -165,12 +225,15 @@ def normalize_publications(raw, curation, taxonomy):
         key = stable_key(publication, title)
         override = records.get(key, {})
         doi = normalize_doi(override.get("doi") or publication.get("DOI"))
+        url = publication_url(publication, doi)
         suggested_themes, suggested_questions = suggest_taxonomy(title, venue)
         themes = override.get("themes", suggested_themes)
         questions = override.get("questions", suggested_questions)
-        authors = [author_name(author) for author in publication.get("author", [])]
+        author_views = build_author_views(
+            [author_name(author) for author in publication.get("author", [])]
+        )
 
-        output_type = clean_text(publication.get("type"))
+        raw_type = clean_text(publication.get("type"))
         type_names = {
             "article-journal": "Journal article",
             "chapter": "Book chapter",
@@ -178,23 +241,62 @@ def normalize_publications(raw, curation, taxonomy):
             "report": "Report",
             "paper-conference": "Conference paper",
             "dataset": "Dataset",
+            "article": "Article",
+            "article-newspaper": "Newspaper article",
+            "article-magazine": "Magazine article",
+            "webpage": "Web resource",
         }
-        output_type = type_names.get(output_type, output_type.title() or "Other")
+        output_type = override.get(
+            "output_type", type_names.get(raw_type, raw_type.title() or "Other")
+        )
+        title_lower = title.lower()
+        is_secondary = (
+            output_type.lower() in {"dataset", "supplementary material", "web resource"}
+            or "supplementary data" in title_lower
+            or "figshare" in url.lower()
+        )
+
+        access_override = access_records.get(key, {})
+        if not access_override and doi:
+            access_override = access_records.get(f"doi:{doi}", {})
+        if "open_access" in access_override:
+            is_open_access = bool(access_override["open_access"])
+            access_reviewed = True
+        else:
+            is_open_access = infer_open_access(publication, venue, url)
+            access_reviewed = False
+        oa_url = clean_text(access_override.get("url")) or (url if is_open_access else "")
+
+        citation_parts = [venue]
+        volume = clean_text(publication.get("volume"))
+        issue = clean_text(publication.get("issue"))
+        pages = clean_text(publication.get("page"))
+        if volume:
+            citation_parts.append(volume + (f"({issue})" if issue else ""))
+        if pages:
+            citation_parts.append(pages)
+        citation = ", ".join(part for part in citation_parts if part)
+        if year:
+            citation = f"{citation} ({year})" if citation else str(year)
 
         normalized.append(
             {
                 "id": key,
                 "title": title,
+                "title_sort": re.sub(r"^(a|an|the)\s+", "", title.lower()),
                 "year": year,
-                "authors": authors,
-                "authors_display": ", ".join(authors),
+                **author_views,
+                "authors_display": ", ".join(item["name"] for item in author_views["authors"]),
                 "venue": venue,
-                "volume": clean_text(publication.get("volume")),
-                "issue": clean_text(publication.get("issue")),
-                "pages": clean_text(publication.get("page")),
+                "volume": volume,
+                "issue": issue,
+                "pages": pages,
+                "citation": citation,
                 "doi": doi,
-                "url": publication_url(publication, doi),
-                "type": override.get("output_type", output_type),
+                "url": url,
+                "type": output_type,
+                "type_slug": slugify(output_type),
+                "is_secondary": is_secondary,
                 "theme_ids": themes,
                 "question_ids": questions,
                 "themes": [
@@ -207,7 +309,6 @@ def normalize_publications(raw, curation, taxonomy):
                     for question in questions
                     if question in taxonomy["questions"]
                 ],
-                # Transitional compatibility for older presentation templates.
                 "tags": [
                     taxonomy["themes"][theme]["title"]
                     for theme in themes
@@ -216,32 +317,27 @@ def normalize_publications(raw, curation, taxonomy):
                 "featured": bool(override.get("featured", False)),
                 "summary": override.get("summary"),
                 "review_status": override.get("review_status", "suggested"),
+                "open_access": is_open_access,
+                "oa_url": oa_url,
+                "oa_license": clean_text(access_override.get("license")),
+                "access_reviewed": access_reviewed,
             }
         )
 
     return sorted(
         normalized,
-        key=lambda publication: (
-            publication["year"] or 0,
-            publication["title"].lower(),
-        ),
+        key=lambda item: (item["year"] or 0, item["title"].lower()),
         reverse=True,
     )
 
 
 def eligible_homepage_papers(publications):
     """Exclude datasets, supplementary records, and undated records."""
-    excluded_types = {"dataset", "supplementary material"}
-    eligible = []
-    for publication in publications:
-        title = publication["title"].lower()
-        output_type = publication["type"].lower()
-        if not publication["year"] or output_type in excluded_types:
-            continue
-        if "supplementary data" in title or "figshare" in publication["url"].lower():
-            continue
-        eligible.append(publication)
-    return eligible
+    return [
+        publication
+        for publication in publications
+        if publication["year"] and not publication["is_secondary"]
+    ]
 
 
 def _random_choice(items, slot):
@@ -321,5 +417,8 @@ def homepage_publications(publications, classic_dois):
 
 def homepage_publication_payload(publication):
     """Return the minimal safe browser-side payload used for random rotation."""
-    keys = ("title", "year", "type", "authors_display", "summary", "url")
+    keys = (
+        "title", "year", "type", "authors_display", "summary", "url",
+        "open_access", "oa_url",
+    )
     return {key: publication.get(key) for key in keys}

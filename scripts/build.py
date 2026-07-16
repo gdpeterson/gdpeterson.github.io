@@ -112,12 +112,13 @@ def build():
     images = load_json(ROOT / "data/images.json", {})
     taxonomy = load_json(ROOT / "data/taxonomy.json", {"questions": {}, "themes": {}})
     curation = load_json(ROOT / "data/publication-curation.json", {"records": {}})
+    access = load_json(ROOT / "data/publication-access.json", {"records": {}})
     sync = load_json(ROOT / "data/orcid-sync.json", {})
     raw_publications = load_json(ROOT / "data/publications-csl.json", [])
     classic_dois = load_doi_list(ROOT / "data/classic-dois.txt")
 
     validate_image_catalog(ROOT, images)
-    publications = normalize_publications(raw_publications, curation, taxonomy)
+    publications = normalize_publications(raw_publications, curation, taxonomy, access)
     homepage_selection = homepage_publications(publications, classic_dois)
 
     copy_static_assets()
@@ -131,6 +132,11 @@ def build():
         for publication in publications
         for question_id in publication["question_ids"]
     )
+    output_type_counts = Counter(publication["type_slug"] for publication in publications)
+    output_type_labels = {
+        publication["type_slug"]: publication["type"] for publication in publications
+    }
+    open_access_count = sum(1 for publication in publications if publication["open_access"])
     homepage_candidate_json = json.dumps(
         {
             "recent": [
@@ -161,6 +167,9 @@ def build():
         "theme_counts": theme_counts,
         "question_counts": question_counts,
         "sync": sync,
+        "output_type_counts": output_type_counts,
+        "output_type_labels": output_type_labels,
+        "open_access_count": open_access_count,
     }
 
     featured_index = profile.get("homepage", {}).get("featured_story_index", 0)
@@ -191,6 +200,7 @@ def build():
                 "page_title": "Publications",
                 "active": "publications",
                 "publications": publications,
+                "featured_publications": homepage_selection["cards"],
             },
         ),
         ("projects/index.html", "projects.html", {"page_title": "Projects & Data", "active": "projects"}),

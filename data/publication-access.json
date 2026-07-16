@@ -1,0 +1,5 @@
+{
+  "description": "Optional human-reviewed open-access metadata. Keys should match publication IDs such as doi:10.xxxx/yyy. The build also makes conservative OA inferences for known open repositories and Ecology and Society records.",
+  "records": {
+  }
+}

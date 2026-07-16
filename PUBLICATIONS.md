@@ -60,3 +60,43 @@ Use the publication's stable key in `data/publication-curation.json`, normally
   "review_status": "reviewed"
 }
 ```
+
+## Open-access status
+
+Open-access corrections are maintained separately in:
+
+```text
+data/publication-access.json
+```
+
+Use the publication's stable ID, normally its DOI prefixed with `doi:`:
+
+```json
+{
+  "records": {
+    "doi:10.5751/es-12345-260101": {
+      "open_access": true,
+      "url": "https://www.ecologyandsociety.org/vol26/iss1/art1/",
+      "license": "CC BY 4.0"
+    }
+  }
+}
+```
+
+Set `open_access` to `false` only when the status has been checked. If a record is
+absent, the build makes conservative inferences for Ecology and Society and a
+small list of established open repositories. Unknown papers are not labelled.
+
+## Publication-page presentation
+
+The catalogue is generated from the normalized records; do not edit publication
+HTML by hand. The page provides:
+
+- search, year, output-type, domain, question, and open-access filters;
+- readable and compact views;
+- collapsed long author lists with Garry Peterson highlighted;
+- output-type labels and separate domain/question treatments;
+- DOI, open-access, and copy-citation actions.
+
+Datasets and supplementary records are hidden by default but remain available
+through the filters.

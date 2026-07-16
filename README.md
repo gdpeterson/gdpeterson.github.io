@@ -69,3 +69,13 @@ HOMEPAGE_RANDOM_SEED=preview python scripts/build.py
 Commit and push to `main`. The workflow in `.github/workflows/pages.yml` builds
 with the root-site path and deploys `dist/`. GitHub Pages must use **GitHub
 Actions** as its source.
+
+### Publication catalogue files
+
+- `data/publications-csl.json`: bibliographic facts, normally updated from ORCID.
+- `data/publication-curation.json`: reviewed themes, summaries, and output types.
+- `data/publication-access.json`: reviewed open-access status, links, and licences.
+- `data/classic-dois.txt`: ten DOI entries used for the rotating classic homepage paper.
+
+The templates never contain hand-entered paper lists. Rebuilding the site reads
+these files and regenerates the homepage and publication catalogue.

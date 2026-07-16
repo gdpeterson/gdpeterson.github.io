@@ -1,24 +1,148 @@
 {% extends "base.html" %}
 {% from "_image.html" import render as render_image %}
+{% macro author_list(items) -%}
+  {%- for author in items -%}
+    {%- if not loop.first %}, {% endif -%}
+    {%- if author.is_peterson %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif -%}
+  {%- endfor -%}
+{%- endmacro %}
 {% block content %}
-<section class="page-hero">{{ render_image(image('page_contour'), decorative=true) }}<div class="shell narrow"><p class="eyebrow light">Publications</p><h1>A searchable record of {{ publication_count }} works</h1><p>Bibliographic records come from ORCID-compatible data and DOI metadata. Peterson-specific research categories are non-exclusive and reviewed separately, so automatic updates cannot erase editorial interpretation.</p></div></section>
-<section class="section shell publications-section">
-  <div class="provenance-note"><strong>Open publication record</strong><span>{% if sync.last_synced %}Last ORCID synchronization: {{ sync.last_synced }}.{% else %}The included records can be synchronized from ORCID using the repository workflow.{% endif %}</span><a href="/publications.json">Download JSON</a><a href="{{ profile.orcid_url }}" target="_blank" rel="noopener">View ORCID ↗</a></div>
-  <div class="filters" data-publication-filters>
-    <label class="filter-search"><span>Search</span><input id="pub-search" type="search" placeholder="Title, author, journal, method, or theme"></label>
-    <label><span>Year</span><select id="pub-year"><option value="">All years</option>{% for year in years %}<option value="{{ year }}">{{ year }} ({{ year_counts[year] }})</option>{% endfor %}</select></label>
-    <fieldset class="filter-group"><legend>Guiding questions</legend>{% for id, q in taxonomy.questions.items() %}<label><input type="checkbox" name="question" value="{{ id }}"><span>{{ q.short_title }}</span><small>{{ question_counts[id] }}</small></label>{% endfor %}</fieldset>
-    <fieldset class="filter-group"><legend>Research domains</legend>{% for id, theme in taxonomy.themes.items() %}<label><input type="checkbox" name="theme" value="{{ id }}"><span>{{ theme.title }}</span><small>{{ theme_counts[id] }}</small></label>{% endfor %}</fieldset>
-    <div class="filter-options"><label><input id="pub-match-all" type="checkbox"> Match every selected domain</label><button id="pub-reset" type="button">Clear filters</button></div>
-    <p id="pub-results" class="result-count" aria-live="polite">Showing {{ publication_count }} works</p>
+<section class="page-hero publications-hero">
+  {{ render_image(image('page_contour'), decorative=true) }}
+  <div class="shell narrow">
+    <p class="eyebrow light">Publications</p>
+    <h1>{{ publication_count }} works, designed to be browsed rather than endured</h1>
+    <p>Search by title, author, topic, year, or output type. Open-access records are identified where the status is known or can be inferred conservatively from an open repository or journal.</p>
   </div>
-  <div class="publication-list" id="publication-list">
+</section>
+
+<section class="section shell publication-featured" aria-labelledby="publication-entry-points">
+  <div class="section-heading compact-heading">
+    <p class="eyebrow">Three entry points</p>
+    <h2 id="publication-entry-points">Recent, classic, and newest</h2>
+  </div>
+  <div class="publication-entry-grid">
+    {% for pub in featured_publications %}
+    <article class="publication-entry-card">
+      <p class="publication-slot">{{ pub.slot_label }}</p>
+      <h3>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+      <p class="publication-entry-citation">{{ pub.citation }}</p>
+      {% if pub.open_access %}<a class="oa-badge" href="{{ pub.oa_url or pub.url }}" target="_blank" rel="noopener">Open access ↗</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section shell publications-page">
+  <details class="catalogue-note">
+    <summary>About this catalogue and its data</summary>
+    <div>
+      <p>Bibliographic facts are stored separately in <code>data/publications-csl.json</code> and can be refreshed from ORCID. Reviewed categories and summaries live in <code>data/publication-curation.json</code>. Open-access corrections live in <code>data/publication-access.json</code>.</p>
+      <p>{{ open_access_count }} records are currently marked open access. <a href="{{ site_base }}/publications.json">Download the publication data</a>.</p>
+    </div>
+  </details>
+
+  <div class="publication-toolbar" role="search">
+    <label class="publication-search">
+      <span class="sr-only">Search publications</span>
+      <input id="pub-search" type="search" placeholder="Search titles, authors, journals, or topics…" autocomplete="off">
+    </label>
+    <label class="publication-sort">
+      <span class="sr-only">Sort publications</span>
+      <select id="pub-sort">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="title">Title A–Z</option>
+      </select>
+    </label>
+    <button id="pub-filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="publication-filter-panel">Filters <span id="pub-filter-count">0</span></button>
+    <div class="publication-view" aria-label="Publication display density">
+      <button type="button" data-view="readable" aria-pressed="true">Readable</button>
+      <button type="button" data-view="compact" aria-pressed="false">Compact</button>
+    </div>
+  </div>
+
+  <div id="publication-filter-panel" class="publication-filter-panel" hidden>
+    <div class="filter-panel-grid">
+      <fieldset class="filter-group">
+        <legend>Year</legend>
+        <label class="select-label"><span>Publication year</span><select id="pub-year"><option value="">All years</option>{% for year in years %}<option value="{{ year }}">{{ year }} ({{ year_counts[year] }})</option>{% endfor %}</select></label>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Output type</legend>
+        {% for id, label in output_type_labels|dictsort(by='value') %}
+        <label><input type="checkbox" name="type" value="{{ id }}"><span>{{ label }}</span><small>{{ output_type_counts[id] }}</small></label>
+        {% endfor %}
+        <label class="filter-emphasis"><input id="pub-include-secondary" type="checkbox"><span>Include datasets and supplementary records</span></label>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Research domains</legend>
+        {% for id, theme in taxonomy.themes.items() %}<label><input type="checkbox" name="theme" value="{{ id }}"><span>{{ theme.title }}</span><small>{{ theme_counts[id] }}</small></label>{% endfor %}
+        <label class="filter-emphasis"><input id="pub-match-all" type="checkbox"><span>Match every selected domain</span></label>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Guiding questions</legend>
+        {% for id, question in taxonomy.questions.items() %}<label><input type="checkbox" name="question" value="{{ id }}"><span>{{ question.short_title }}</span><small>{{ question_counts[id] }}</small></label>{% endfor %}
+        <label class="filter-emphasis"><input id="pub-open-access" type="checkbox"><span>Open access only</span><small>{{ open_access_count }}</small></label>
+      </fieldset>
+    </div>
+    <div class="filter-panel-actions"><button id="pub-reset" type="button">Clear all filters</button></div>
+  </div>
+
+  <div id="pub-active-filters" class="active-filter-row" aria-label="Active filters"></div>
+  <div class="publication-results-heading">
+    <p id="pub-results" class="result-count" aria-live="polite">Showing {{ publication_count }} works</p>
+    <a href="#publication-list" class="skip-results">Skip to results</a>
+  </div>
+
+  <div class="publication-list" id="publication-list" data-view="readable">
   {% for pub in publications %}
-    <article class="publication-item" data-year="{{ pub.year or '' }}" data-themes="{{ pub.theme_ids|join('|') }}" data-questions="{{ pub.question_ids|join('|') }}" data-search="{{ (pub.title ~ ' ' ~ pub.authors_display ~ ' ' ~ pub.venue ~ ' ' ~ pub.themes|join(' ') ~ ' ' ~ pub.questions|join(' '))|lower }}">
-      <div class="pub-year">{{ pub.year or '—' }}</div>
-      <div><div class="pub-meta"><span>{{ pub.type }}</span>{% if pub.review_status == 'suggested' %}<span title="Category suggestions await individual review">Suggested categories</span>{% endif %}</div><h2>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h2><p class="authors">{{ pub.authors_display }}</p><p class="citation">{{ pub.venue }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.issue %}({{ pub.issue }}){% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.</p>{% if pub.summary %}<p class="pub-summary">{{ pub.summary }}</p>{% endif %}<div class="tag-row">{% for tag in pub.themes %}<span class="tag small">{{ tag }}</span>{% endfor %}{% for q in pub.questions %}<span class="tag small question-tag">{{ q }}</span>{% endfor %}{% if pub.doi %}<a class="doi" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI ↗</a>{% endif %}</div></div>
+    <article class="publication-item"
+      data-year="{{ pub.year or '' }}"
+      data-year-sort="{{ pub.year or 0 }}"
+      data-title-sort="{{ pub.title_sort }}"
+      data-type="{{ pub.type_slug }}"
+      data-secondary="{{ 'true' if pub.is_secondary else 'false' }}"
+      data-open-access="{{ 'true' if pub.open_access else 'false' }}"
+      data-themes="{{ pub.theme_ids|join('|') }}"
+      data-questions="{{ pub.question_ids|join('|') }}"
+      data-search="{{ (pub.title ~ ' ' ~ pub.authors_display ~ ' ' ~ pub.venue ~ ' ' ~ pub.themes|join(' ') ~ ' ' ~ pub.questions|join(' '))|lower }}">
+      <header class="publication-header">
+        <p class="publication-kicker"><span>{{ pub.type }}</span><span>{{ pub.year or 'Undated' }}</span>{% if pub.open_access %}<a class="oa-badge" href="{{ pub.oa_url or pub.url }}" target="_blank" rel="noopener">Open access ↗</a>{% endif %}</p>
+        <h2>{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h2>
+      </header>
+
+      <div class="publication-authors">
+        {% if pub.authors_hidden_count %}
+          <span class="authors-short">{{ author_list(pub.authors_short) }}, and {{ pub.authors_hidden_count }} other{% if pub.authors_hidden_count != 1 %}s{% endif %}</span>
+          <span class="authors-full" hidden>{{ author_list(pub.authors) }}</span>
+          <button class="author-toggle" type="button" aria-expanded="false">Show all authors</button>
+        {% else %}
+          {{ author_list(pub.authors) }}
+        {% endif %}
+      </div>
+
+      <p class="publication-citation"><cite>{{ pub.venue }}</cite>{% if pub.volume %} {{ pub.volume }}{% endif %}{% if pub.issue %}({{ pub.issue }}){% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}{% if pub.year %} ({{ pub.year }}){% endif %}.</p>
+      {% if pub.summary %}<p class="pub-summary">{{ pub.summary }}</p>{% endif %}
+
+      <footer class="publication-footer">
+        <div class="publication-domains" aria-label="Research domains">{% for tag in pub.themes %}<span class="domain-chip">{{ tag }}</span>{% endfor %}</div>
+        <details class="research-connections">
+          <summary>Research connections</summary>
+          <div>{% for q in pub.questions %}<span class="question-link">{{ q }}</span>{% endfor %}{% if pub.review_status == 'suggested' %}<span class="review-note" title="These categories were suggested automatically and await individual review">Categories awaiting review</span>{% endif %}</div>
+        </details>
+        <div class="publication-actions">
+          {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+          {% if pub.open_access and pub.oa_url %}<a href="{{ pub.oa_url }}" target="_blank" rel="noopener">Read open access</a>{% endif %}
+          <button class="copy-citation" type="button" data-citation="{{ pub.authors_display }}. {{ pub.title }}. {{ pub.citation }}.">Copy citation</button>
+        </div>
+      </footer>
     </article>
   {% endfor %}
-  </div><p id="pub-empty" class="empty-state" hidden>No publications match these filters.</p>
+  </div>
+  <p id="pub-empty" class="empty-state" hidden>No publications match these filters.</p>
 </section>
 {% endblock %}
